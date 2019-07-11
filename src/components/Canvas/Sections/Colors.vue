@@ -18,7 +18,7 @@
       <button
         v-for="(value, prop) in data"
         :key="prop"
-        class="flex px-1 py-1 md:w-1/3 xl:w-1/5 border-gray-300 hover:border"
+        class="flex px-1 py-1 md:w-1/3 xl:w-1/5 border-transparent border hover:border-gray-400 hover:bg-gray-200"
       >
         <div
         class="mr-2 flex-none"
@@ -29,7 +29,7 @@
         }" />
         <div>
           <div class="text-sm font-semibold">{{selectedProp}}-{{ prop }}</div>
-          <div class="text-sm">{{ value }}</div>
+          <div class="text-sm text-left">{{ value }}</div>
         </div>
       </button>
     </div>
