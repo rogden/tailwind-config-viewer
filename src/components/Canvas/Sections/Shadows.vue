@@ -5,7 +5,7 @@
       class="mb-3 mr-8"
       :key="prop"
       >
-        <div class="text-sm">{{ prop }}</div>
+        <div class="text-sm">shadow-{{ prop }}</div>
         <div
           class="text-xl"
           :style="{
