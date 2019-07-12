@@ -1,15 +1,16 @@
 <template>
   <div class="">
-    <div class="flex flex-wrap">
-      <div
-        v-for="(value, prop) in fixedWidths"
-        :key="prop"
-        class="mr-2"
-      >
-        <div>{{ prop }}</div>
-        <div :style="{
-          backgroundColor: '#ccc',
-          width: value,
+    <div
+      v-for="(value, prop) in fixedWidths"
+      :key="prop"
+      class="mb-2"
+    >
+      <div>w-{{ prop }}</div>
+      <div class="bg-gray-200">
+        <div
+          class="bg-gray-400"
+          :style="{
+          width: value.includes('vw') ? '100%' : value,
           height: '100px',
           maxWidth: '100%'
         }" />
@@ -18,14 +19,18 @@
     <div
         v-for="(value, prop) in percentWidths"
         :key="prop"
-        class="mr-2"
+        class="mb-4"
       >
-        <div>{{ prop }}</div>
-        <div :style="{
-          backgroundColor: '#ccc',
-          width: value,
-          height: '100px'
-        }" />
+        <div>w-{{ prop }}</div>
+        <div class="bg-gray-200">
+          <div
+            class="bg-gray-400"
+            :style="{
+            width: value,
+            maxWidth: '100%',
+            height: '100px'
+          }" />
+        </div>
       </div>
   </div>
 </template>

@@ -3,9 +3,8 @@
     <div
       v-for="(value, prop) in data"
       :key="prop"
-      class="mb-4"
+      class="mb-4 bg-gray-400"
       :style="{
-        backgroundColor: '#ccc',
         maxWidth: value,
         height: '100px',
       }">

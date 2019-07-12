@@ -3,14 +3,18 @@
     <div
       v-for="(value, prop) in data"
       :key="prop"
-      class="mr-2"
+      class="mr-4 mb-4"
     >
-      <div>{{ prop }}</div>
-      <div :style="{
-        backgroundColor: '#ccc',
-        width: '100px',
-        height: value
-      }" />
+      <div>h-{{ prop }}</div>
+      <div class="bg-gray-200 h-full">
+        <div
+          class="bg-gray-400"
+          :style="{
+            width: '100px',
+            height: value
+          }"
+        />
+      </div>
     </div>
   </div>
 </template>

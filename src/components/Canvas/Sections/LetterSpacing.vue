@@ -5,7 +5,7 @@
       class="mb-3"
       :key="prop"
       >
-        <div class="text-sm">{{ prop }}</div>
+        <div class="text-sm">tracking-{{ prop }}</div>
         <p
           class="text-xl"
           :style="{

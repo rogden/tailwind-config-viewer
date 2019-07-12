@@ -6,8 +6,9 @@
       class="mr-2"
     >
       <div>{{ prop }}</div>
-      <div :style="{
-        backgroundColor: '#ccc',
+      <div
+        class="bg-gray-400"
+        :style="{
         width: '100px',
         height: '100px',
         opacity: value

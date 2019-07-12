@@ -2,10 +2,9 @@
   <div class="flex">
     <div
       v-for="(value, prop) in data"
-      class="mr-4"
+      class="mr-4 bg-gray-400"
       :key="prop"
       :style="{
-        backgroundColor: '#ccc',
         width: '100px',
         height: '100px',
         borderRadius: value

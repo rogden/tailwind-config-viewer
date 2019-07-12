@@ -7,7 +7,6 @@
       >
         <div class="text-sm">shadow-{{ prop }}</div>
         <div
-          class="text-xl"
           :style="{
             width: '100px',
             height: '100px',

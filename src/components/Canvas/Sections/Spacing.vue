@@ -48,13 +48,14 @@
       <div
         v-for="(value, prop) in data"
         :key="prop"
-        class="mb-2"
+        class="mb-4 p-2 hover:bg-gray-200"
       >
-        <div class="text-sm">{{ selectedProp }}{{ dimensionProp ? dimensionProp : '' }}-{{ prop }}</div>
-        <div :style="{
-          backgroundColor: '#ccc',
+        <div class="text-xs mb-1">{{ selectedProp }}{{ dimensionProp ? dimensionProp : '' }}-{{ prop }}</div>
+        <div
+          class="bg-gray-400"
+          :style="{
           width: value,
-          height: '50px',
+          height: '30px',
         }"/>
       </div>
     </div>
