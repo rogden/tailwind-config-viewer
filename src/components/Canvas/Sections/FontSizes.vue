@@ -2,19 +2,34 @@
   <div class="">
     <div
       v-for="(value, prop) in data"
-      class="mb-4 leading-none"
+      class="mb-4"
       :key="prop"
-      :style="{
-        fontSize: value
-      }">
-      <div class="text-sm mb-2">text-{{ prop }}</div>
-      <p>The quick brown fox jumped over the lazy dog.</p>
+    >
+      <div class="border p-4 rounded">
+        <p
+          class="mb-2 leading-none"
+          :style="{
+            fontSize: value
+          }"
+        >
+          The quick brown fox jumped over the lazy dog.
+        </p>
+        <CanvasBlockLabel
+          :label="`text-${prop}`"
+          :value="value"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import CanvasBlockLabel from '../CanvasBlockLabel'
+
 export default {
+  components: {
+    CanvasBlockLabel
+  },
   props: {
     data: {
       type: Object,

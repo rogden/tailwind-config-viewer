@@ -15,29 +15,33 @@
         @click="selectedProp = 'border'">Border</button>
     </div>
     <div class="flex flex-wrap">
-      <button
+      <div
         v-for="(value, prop) in data"
         :key="prop"
-        class="flex px-1 py-1 md:w-1/3 xl:w-1/5 border-transparent border hover:border-gray-400 hover:bg-gray-200"
+        class="mb-4"
       >
         <div
-        class="mr-2 flex-none"
-        :style="{
-          backgroundColor: value,
-          width: '100px',
-          height: '100px'
-        }" />
-        <div>
-          <div class="text-sm font-semibold">{{selectedProp}}-{{ prop }}</div>
-          <div class="text-sm text-left">{{ value }}</div>
-        </div>
-      </button>
+          class="mr-4 mb-2 flex-none w-40 h-40"
+          :style="{
+            backgroundColor: value
+          }"
+        />
+        <CanvasBlockLabel
+          :label="`${selectedProp}-${prop}`"
+          :value="value"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import CanvasBlockLabel from '../CanvasBlockLabel'
+
 export default {
+  components: {
+    CanvasBlockLabel
+  },
   props: {
     data: {
       type: Object,

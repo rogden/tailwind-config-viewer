@@ -3,22 +3,29 @@
     <div
       v-for="(value, prop) in data"
       :key="prop"
-      class="mr-2"
+      class="mr-4"
     >
-      <div>{{ prop }}</div>
       <div
-        class="bg-gray-400"
+        class="mb-2 bg-gray-400 w-40 h-40"
         :style="{
-        width: '100px',
-        height: '100px',
-        opacity: value
-      }" />
+          opacity: value
+        }"
+      />
+      <CanvasBlockLabel
+        :label="`opacity-${prop}`"
+        :value="value"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import CanvasBlockLabel from '../CanvasBlockLabel'
+
 export default {
+  components: {
+    CanvasBlockLabel
+  },
   props: {
     data: {
       type: Object,

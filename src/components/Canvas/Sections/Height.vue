@@ -1,26 +1,31 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="">
     <div
       v-for="(value, prop) in data"
       :key="prop"
-      class="mr-4 mb-4"
+      class="mb-6"
     >
-      <div>h-{{ prop }}</div>
-      <div class="bg-gray-200 h-full">
         <div
-          class="bg-gray-400"
+          class="mb-2 bg-gray-400"
           :style="{
-            width: '100px',
             height: value
           }"
         />
-      </div>
+      <CanvasBlockLabel
+        :label="`h-${prop}`"
+        :value="value"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import CanvasBlockLabel from '../CanvasBlockLabel'
+
 export default {
+  components: {
+    CanvasBlockLabel
+  },
   props: {
     data: {
       type: Object,
