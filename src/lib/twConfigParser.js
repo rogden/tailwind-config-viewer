@@ -2,7 +2,8 @@ import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
 import resolveConfig from 'tailwindcss/resolveConfig'
 
 export default (configStr) => {
-  return resolveConfig(configStr)
+  const config = eval(configStr)
+  return resolveConfig(config)
 }
 
 export const transformThemeForCanvas = ({ theme }) => {
