@@ -21,11 +21,17 @@
         class="mb-4"
       >
         <div
-          class="mr-4 mb-2 flex-none w-40 h-40"
-          :style="{
-            backgroundColor: value
-          }"
-        />
+          class="mr-4 mb-2 flex-none w-40 h-40 flex items-center justify-center"
+          :class="{'border border-gray-300': selectedProp === 'text'}"
+          :style="tileStyle(value)"
+        >
+          <span
+            class="text-3xl"
+            :style="{
+              color: value
+            }"
+            v-if="selectedProp === 'text'">Aa</span>
+        </div>
         <CanvasBlockLabel
           :label="`${selectedProp}-${prop}`"
           :value="value"
@@ -42,6 +48,7 @@ export default {
   components: {
     CanvasBlockLabel
   },
+
   props: {
     data: {
       type: Object,
@@ -52,6 +59,22 @@ export default {
   data () {
     return {
       selectedProp: 'bg'
+    }
+  },
+
+  methods: {
+    tileStyle (value) {
+      if (this.selectedProp === 'bg') {
+        return {
+          backgroundColor: value
+        }
+      }
+
+      if (this.selectedProp === 'border') {
+        return {
+          border: `2px solid ${value}`
+        }
+      }
     }
   }
 
