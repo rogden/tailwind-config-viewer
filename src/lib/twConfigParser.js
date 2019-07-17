@@ -2,8 +2,9 @@ import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
 import resolveConfig from 'tailwindcss/resolveConfig'
 
 export default (configStr) => {
-  const config = eval(configStr)
-  return resolveConfig(config)
+  configStr = configStr.replace(/module.exports = /, '')
+  /* eslint-disable-next-line */
+  return resolveConfig(Function('return (' + configStr + ')')())
 }
 
 export const transformThemeForCanvas = ({ theme }) => {
