@@ -1,18 +1,18 @@
 <template>
-  <div class="flex">
+  <div class="">
     <div
       v-for="(value, prop) in data"
       :key="prop"
-      class="mr-4"
+      class="mb-6"
     >
-      <div
-        class="mb-2 w-40 h-40 bg-gray-200 border-gray-400"
-        :style="{
-          borderWidth: value
-        }"
-      />
+        <div
+          class="mb-2 bg-gray-400"
+          :style="{
+            height: value
+          }"
+        />
       <CanvasBlockLabel
-        :label="`${removeDefaultSuffix(`border-${prop}`)}`"
+        :label="`h-${prop}`"
         :value="value"
       />
     </div>
@@ -21,22 +21,16 @@
 
 <script>
 import CanvasBlockLabel from '../CanvasBlockLabel'
-import { removeDefaultSuffix } from '@/utils'
 
 export default {
   components: {
     CanvasBlockLabel
   },
-
   props: {
     data: {
       type: Object,
       required: true
     }
-  },
-
-  methods: {
-    removeDefaultSuffix
   }
 }
 </script>

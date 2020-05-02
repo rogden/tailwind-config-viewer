@@ -29,14 +29,23 @@
             v-for="section in configTransformed"
             :key="section.title"
             :href="`#${section.title}`"
-            class="block py-2 px-3 text-gray-600 hover:text-teal-600 hover:bg-teal-200 hover:opacity-25 text-base rounded-sm"
+            class="block py-2 px-3 text-gray-600 hover:text-gray-900 text-base rounded-sm"
           >
             {{ section.title }}
           </a>
         </nav>
         <div class="pr-4">
-          <CanvasSection v-for="section in configTransformed" :key="section.title" :title="section.title" :id="section.title">
-            <component :is="sectionComponent(section.component)" :data="section.data" />
+          <CanvasSection
+            v-for="section in configTransformed"
+            :key="section.title"
+            :title="section.title"
+            :id="section.title"
+          >
+            <component
+              :is="sectionComponent(section.component)"
+              :data="section.data"
+              :config="config"
+            />
           </CanvasSection>
         </div>
       </div>
@@ -45,7 +54,7 @@
 </template>
 
 <script>
-import configParser, { transformThemeForCanvas } from '@/lib/twConfigParser'
+import themeComponentMapper from '@/utils/themeComponentMapper'
 import CanvasSection from './CanvasSection'
 import Spacing from './Sections/Spacing'
 
@@ -66,13 +75,12 @@ export default {
     sectionComponent: (component) => {
       return require(`./Sections/${component}.vue`).default
     },
+
     fileSelected (e) {
       const fr = new FileReader()
       fr.onload = (e) => {
-        console.log(e)
-        this.config = configParser(e.target.result)
-        this.configTransformed = transformThemeForCanvas(this.config)
-        console.log(this.config)
+        this.config = JSON.parse(e.target.result)
+        this.configTransformed = themeComponentMapper(this.config)
       }
       fr.readAsText(e.target.files[0])
     }

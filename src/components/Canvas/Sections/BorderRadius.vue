@@ -8,7 +8,7 @@
         }"
       />
       <CanvasBlockLabel
-        :label="`rounded-${prop}`"
+        :label="`${removeDefaultSuffix(`rounded-${prop}`)}`"
         :value="value"
       />
     </div>
@@ -17,16 +17,22 @@
 
 <script>
 import CanvasBlockLabel from '../CanvasBlockLabel'
+import { removeDefaultSuffix } from '@/utils'
 
 export default {
   components: {
     CanvasBlockLabel
   },
+
   props: {
     data: {
       type: Object,
       required: true
     }
+  },
+
+  methods: {
+    removeDefaultSuffix
   }
 }
 </script>

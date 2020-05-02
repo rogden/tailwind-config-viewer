@@ -1,42 +1,40 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="">
     <div
       v-for="(value, prop) in data"
-      class="mb-4 mr-8 w-40"
+      class="mb-4"
       :key="prop"
-      >
-        <div
-          class="mb-2 w-40 h-40"
+    >
+      <div class="border p-4 rounded">
+        <p
+          class="mb-2 leading-none text-2xl"
           :style="{
-            boxShadow: value
+            fontWeight: value
           }"
-        />
+        >
+          The quick brown fox jumped over the lazy dog.
+        </p>
         <CanvasBlockLabel
-          :label="`${removeDefaultSuffix(`shadow-${prop}`)}`"
+          :label="`font-${prop}`"
           :value="value"
         />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import CanvasBlockLabel from '../CanvasBlockLabel'
-import { removeDefaultSuffix } from '@/utils'
 
 export default {
   components: {
     CanvasBlockLabel
   },
-
   props: {
     data: {
       type: Object,
       required: true
     }
-  },
-
-  methods: {
-    removeDefaultSuffix
   }
 }
 </script>
