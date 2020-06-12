@@ -1,11 +1,11 @@
 <template>
-  <div class="">
+  <div class="-mb-4">
     <div
       v-for="(value, prop) in data"
       class="mb-4"
       :key="prop"
     >
-      <div class="border p-4 rounded">
+      <div class="border-b py-4">
         <p
           class="mb-2 text-2xl leading-none"
           :style="{

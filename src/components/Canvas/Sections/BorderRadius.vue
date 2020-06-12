@@ -1,6 +1,6 @@
 <template>
-  <div class="flex">
-    <div v-for="(value, prop) in data" :key="prop" class="mr-4">
+  <div class="flex flex-wrap -mb-4">
+    <div v-for="(value, prop) in data" :key="prop" class="mr-4 mb-4">
       <div
         class="bg-gray-400 mb-2 w-40 h-40"
         :style="{

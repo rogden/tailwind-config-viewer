@@ -12,7 +12,7 @@
           }"
         />
       <CanvasBlockLabel
-        :label="`h-${prop}`"
+        :label="`max-h-${prop}`"
         :value="value"
       />
     </div>

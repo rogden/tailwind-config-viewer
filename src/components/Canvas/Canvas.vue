@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100">
+  <div class="bg-white">
     <div
       v-if="!config"
       style="height: calc(100vh - 63px);"
@@ -23,18 +23,20 @@
       </form>
     </div>
     <template v-if="config">
-      <div class="pt-8 flex">
-        <nav class="w-56 flex-none pt-12 px-3 h-full top-0 sticky">
-          <a
-            v-for="section in configTransformed"
-            :key="section.title"
-            :href="`#${section.title}`"
-            class="block py-2 px-3 text-gray-600 hover:text-gray-900 text-base rounded-sm"
-          >
-            {{ section.title }}
-          </a>
-        </nav>
-        <div class="pr-4">
+      <div class="pt-8 px-3 flex">
+        <div class="hidden md:block flex-none h-full overflow-y-auto top-0 sticky max-h-screen">
+          <nav class="w-56 py-12 px-3 h-full">
+            <a
+              v-for="section in configTransformed"
+              :key="section.title"
+              :href="`#${section.title}`"
+              class="block py-2 text-gray-600 hover:text-gray-900 text-base rounded-sm"
+            >
+              {{ section.title }}
+            </a>
+          </nav>
+        </div>
+        <div>
           <CanvasSection
             v-for="section in configTransformed"
             :key="section.title"
