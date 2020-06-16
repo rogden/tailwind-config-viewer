@@ -20,6 +20,7 @@
     "koa-static": "^5.0.0",
     "open": "^7.0.4",
     "portfinder": "^1.0.26",
+    "tailwindcss": "^1.4.4",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
@@ -32,7 +33,6 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "tailwindcss": "^1.4.4",
     "vue-template-compiler": "^2.5.21"
   }
 }
