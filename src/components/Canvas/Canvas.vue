@@ -1,26 +1,10 @@
 <template>
-  <div class="bg-white">
+  <div class="bg-gray-100">
     <div
       v-if="!config"
       style="height: calc(100vh - 63px);"
       class="flex items-center justify-center">
-      <form
-        class="
-          flex flex-col
-          p-16
-          max-w-sm
-          rounded-lg
-          border-2 border-dashed border-bg-gray-200 bg-white"
-      >
-        <p class="mb-3 text-gray-600 text-center font-bold">Upload your Tailwind config file</p>
-        <input
-          id="file"
-          type="file"
-          name="file"
-          class="absolute opacity-0 w-0 h-0 overflow-hidden"
-          @change="fileSelected">
-        <label for="file" class="inline-block p-4 bg-teal-500 hover:bg-teal-600 rounded cursor-pointer text-center text-white">Upload Tailwind Config</label>
-      </form>
+        <p class="text-gray-600 text-center font-bold">Loading Config...</p>
     </div>
     <template v-if="config">
       <div class="pt-8 px-3 flex">
@@ -86,6 +70,13 @@ export default {
       }
       fr.readAsText(e.target.files[0])
     }
+  },
+
+  async mounted () {
+    const config = await fetch('/config')
+    this.config = await config.json()
+    console.log(this.config)
+    this.configTransformed = themeComponentMapper(this.config)
   }
 }
 </script>
