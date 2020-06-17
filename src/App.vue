@@ -3,10 +3,19 @@
     <div class="bg-white border-b p-4 text-gray-700 text-xl font-bold">
       Tailwind Config Viewer
     </div>
-    <router-view/>
+    <Canvas />
   </div>
 </template>
 
+<script>
+import Canvas from '@/components/Canvas'
+
+export default {
+  components: {
+    Canvas
+  }
+}
+</script>
 <style>
 body {
   background-color: #fff !important;
