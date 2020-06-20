@@ -15,7 +15,7 @@ router.get('/config', (ctx) => {
   // delete the require cache of tailwind config so we can pick up new changes
   delete require.cache[tailwindConfigPath]
   const tailwindConfig = require(tailwindConfigPath)
-  ctx.body = resolveConfig(tailwindConfig).theme
+  ctx.body = resolveConfig(tailwindConfig)
 })
 
 app

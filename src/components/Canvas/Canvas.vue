@@ -50,6 +50,12 @@ export default {
     Spacing
   },
 
+  provide () {
+    return {
+      prefixClassName: this.prefixClassName
+    }
+  },
+
   data () {
     return {
       config: null,
@@ -58,8 +64,12 @@ export default {
   },
 
   methods: {
-    sectionComponent: (component) => {
+    sectionComponent (component) {
       return require(`./Sections/${component}.vue`).default
+    },
+
+    prefixClassName (className) {
+      return this.config.prefix ? `${this.config.prefix}-${className}` : className
     },
 
     fileSelected (e) {
@@ -76,7 +86,7 @@ export default {
     const config = await fetch('/config')
     this.config = await config.json()
     console.log(this.config)
-    this.configTransformed = themeComponentMapper(this.config)
+    this.configTransformed = themeComponentMapper(this.config.theme)
   }
 }
 </script>

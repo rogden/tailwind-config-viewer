@@ -13,7 +13,7 @@
       "
       readonly
       ref="label"
-      :value="label"
+      :value="prefixClassName(label)"
       @click="copy"
       @mouseover="showCopy"
       @mouseout="hideCopy"
@@ -26,11 +26,16 @@
 
 <script>
 export default {
+  inject: [
+    'prefixClassName'
+  ],
+
   props: {
     label: {
       type: String,
       required: true
     },
+
     value: {
       type: String,
       required: true
