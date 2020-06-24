@@ -1,9 +1,8 @@
 <template>
-  <div>
+  <div class="space-y-4">
     <div
       v-for="(value, prop) in data"
       :key="prop"
-      class="mb-6"
     >
       <div class="mb-2 bg-gray-200">
         <div

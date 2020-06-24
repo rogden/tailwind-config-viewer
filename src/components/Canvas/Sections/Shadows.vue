@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap -mb-4">
     <div
       v-for="(value, prop) in data"
       class="mb-4 mr-8 w-40"

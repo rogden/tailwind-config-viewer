@@ -1,8 +1,8 @@
 <template>
-  <div class="-mt-4 space-y-4 divide-y">
+  <div class="divide-y -my-4">
     <div
       v-for="(value, prop) in data"
-      class="pt-4"
+      class="py-4"
       :key="prop"
     >
       <div

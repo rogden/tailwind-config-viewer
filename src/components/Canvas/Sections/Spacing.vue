@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <div class="lg:flex mb-6">
       <div class="flex w-full lg:w-auto mb-2 lg:mb-0">
         <button
@@ -22,7 +22,8 @@
           width="11" height="11" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.657 4.243h3.76a.2.2 0 0 1 .141.341l-3.76 3.76a.2.2 0 0 1-.283 0l-3.76-3.76a.2.2 0 0 1 .142-.341h3.76z" fill="#B8C2CC"></path></svg>
         <select
           class="h-full w-full px-4 py-2 border bg-white border-gray-400 rounded text-sm appearance-none"
-          v-model="dimensionProp">
+          v-model="dimensionProp"
+        >
           <option value="">All</option>
           <option value="t">Top</option>
           <option value="r">Right</option>
@@ -33,11 +34,11 @@
         </select>
       </div>
     </div>
-    <div>
+    <div class="divide-y -my-4">
       <div
         v-for="({value, prop}) in spacing"
         :key="prop"
-        class="mb-6x py-3 border-b"
+        class="py-4"
       >
         <div
           class="mb-2 bg-gray-400"

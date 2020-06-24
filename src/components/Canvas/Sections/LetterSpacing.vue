@@ -1,22 +1,20 @@
 <template>
-  <div class="-mb-4">
+  <div class="divide-y -my-4">
     <div
       v-for="(value, prop) in data"
-      class="mb-4"
+      class="py-4"
       :key="prop"
     >
-      <div class="border-b py-4">
-        <p
-          class="mb-2 text-2xl leading-none"
-          :style="{
-            letterSpacing: value
-          }"
-        >The quick brown fox jumped over the lazy dog.</p>
-        <CanvasBlockLabel
-          :label="`tracking-${prop}`"
-          :value="value"
-        />
-      </div>
+      <p
+        class="mb-2 text-2xl leading-none"
+        :style="{
+          letterSpacing: value
+        }"
+      >The quick brown fox jumped over the lazy dog.</p>
+      <CanvasBlockLabel
+        :label="`tracking-${prop}`"
+        :value="value"
+      />
     </div>
   </div>
 </template>

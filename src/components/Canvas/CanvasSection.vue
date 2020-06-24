@@ -1,5 +1,5 @@
 <template>
-  <section class="mb-16 max-w-full">
+  <section class="mb-12 max-w-full">
     <h1 class="mb-2 text-3xl text-gray-800">{{ title }}</h1>
     <div class="bg-white p-6 rounded border-gray-300 border">
       <slot />
