@@ -1,21 +1,33 @@
 {
   "name": "tailwind-config-viewer",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
   "scripts": {
     "serve": "node server/index.js & vue-cli-service serve",
     "build": "vue-cli-service build",
+    "prepublishOnly": "npm run lint --no-fix && npm run build",
     "lint": "vue-cli-service lint"
   },
   "bin": {
     "tailwind-config-viewer": "./cli/index.js",
     "tailwindcss-config-viewer": "./cli/index.js"
   },
+  "repository": "github:rogden/tailwind-config-viewer",
+  "keywords": [
+    "tailwind",
+    "tailwindcss"
+  ],
+  "license": "MIT",
+  "files": [
+    "server",
+    "cli",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "@koa/router": "^9.0.1",
     "core-js": "^2.6.5",
-    "express": "^4.17.1",
-    "get-css-classes": "^1.1.0",
     "koa": "^2.12.0",
     "koa-static": "^5.0.0",
     "open": "^7.0.4",
