@@ -5,10 +5,10 @@
       class="tooltip pointer-events-none absolute py-1 px-2 text-sm bg-gray-800 text-white rounded">{{ copyText }}</div>
     <input
       class="
-        text-sm text-gray-700
-        font-semibold hover:text-teal-600
-        bg-transparent
-        inline-block rounded
+        inline-block
+        appearance-none bg-transparent
+        text-sm text-gray-800
+        font-mono hover:text-teal-600
         cursor-pointer focus:outline-none
       "
       readonly
