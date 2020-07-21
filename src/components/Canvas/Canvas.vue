@@ -40,14 +40,12 @@
 </template>
 
 <script>
-import themeComponentMapper from '@/utils/themeComponentMapper'
+import themeComponentMapper from './themeComponentMapper'
 import CanvasSection from './CanvasSection'
-import Spacing from './Sections/Spacing'
 
 export default {
   components: {
-    CanvasSection,
-    Spacing
+    CanvasSection
   },
 
   provide () {
