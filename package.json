@@ -1,6 +1,11 @@
 {
   "name": "tailwind-config-viewer",
   "version": "1.0.0",
+  "description": "View your Tailwind CSS config file...visually!",
+  "author": {
+    "name": "Ryan Ogden",
+    "email": "ryaneogden@gmail.com"
+  },
   "scripts": {
     "serve": "node server/index.js & vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -12,6 +17,9 @@
     "tailwindcss-config-viewer": "./cli/index.js"
   },
   "repository": "github:rogden/tailwind-config-viewer",
+  "bugs": {
+    "url": "https://github.com/rogden/tailwind-config-viewer/issues"
+  },
   "keywords": [
     "tailwind",
     "tailwindcss"
