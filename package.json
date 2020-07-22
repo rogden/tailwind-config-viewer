@@ -10,7 +10,8 @@
     "serve": "node server/index.js & vue-cli-service serve",
     "build": "vue-cli-service build",
     "prepublishOnly": "npm run lint --no-fix && npm run build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test": "echo \"No test specified\""
   },
   "bin": {
     "tailwind-config-viewer": "./cli/index.js",
