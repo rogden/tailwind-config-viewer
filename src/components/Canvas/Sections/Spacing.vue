@@ -86,7 +86,6 @@ export default {
         .sort((keyA, keyB) => {
           const aInPx = this.data[keyA].indexOf('rem') !== -1 ? remToPx(this.data[keyA]) : parseFloat(this.data[keyA])
           const bInPx = this.data[keyB].indexOf('rem') !== -1 ? remToPx(this.data[keyB]) : parseFloat(this.data[keyB])
-          console.log(this.data[keyA], aInPx, bInPx)
           return aInPx - bInPx
         })
         .map(key => {
