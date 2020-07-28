@@ -10,16 +10,30 @@ Tailwind Config Viewer is a local UI tool for visualizing your Tailwind CSS conf
 Run `npx tailwind-config-viewer` from within the directory that contains your Tailwind configuration file.
 
 ### Globally
-`npm i tailwind-config-viewer`
+`npm i tailwind-config-viewer -g`
 
 ### Locally
 `npm i tailwind-config-viewer -D`
 
+When installing locally, you can add an entry into the package.json scripts field to run and open the viewer:
+
+```json
+"scripts": {
+  "tailwind-config-viewer": "tailwind-config-viewer -o"
+}
+```
+
 ## Usage
+
 Run the `tailwind-config-viewer` command from within the directory that contains your Tailwind configuration file.
 
-## Options
-There are a few options you can provide to the `tailwind-config-viewer` command.
+## Commands
+
+### serve (default)
+
+The `serve` command is the default command. Running `tailwind-config-viewer` is the same as `tailwind-config-viewer serve`. 
+
+**Options**
 
 |Option|Default|Description|
 |----|----|----|
@@ -27,7 +41,17 @@ There are a few options you can provide to the `tailwind-config-viewer` command.
 |-o, --open|`false`|Open the viewer in default browser|
 |-c, --config|`tailwind.config.js`|Path to your Tailwind config file|
 
+### export
+
+Exports the viewer to a directory that can be uploaded to a static host. It accepts the output directory path as its sole argument. 
+
+`tailwind-config-viewer export ./output-dir`
+
+If an output directory isn't specificied it will be output to `tcv-build`.
+
 ## Roadmap
+
+- [x] Add static export 
 - [ ] Add support for loading custom fonts / font family section
 - [ ] Add Transition section
 - [ ] Dark Mode toggle

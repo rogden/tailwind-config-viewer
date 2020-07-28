@@ -81,9 +81,8 @@ export default {
   },
 
   async mounted () {
-    const config = await fetch('/config')
+    const config = await fetch(window.__TCV_CONFIG.configPath)
     this.config = await config.json()
-    console.log(this.config)
     this.configTransformed = themeComponentMapper(this.config.theme)
   }
 }

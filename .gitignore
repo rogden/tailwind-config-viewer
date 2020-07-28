@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+# static export build
+tcv-build
 
 # local env files
 .env.local
