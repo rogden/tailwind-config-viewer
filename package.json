@@ -29,7 +29,8 @@
   "files": [
     "server",
     "cli",
-    "dist"
+    "dist",
+    "lib"
   ],
   "engines": {
     "node": ">=8"
