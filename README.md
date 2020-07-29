@@ -51,6 +51,13 @@ Exports the viewer to a directory that can be uploaded to a static host. It acce
 
 If an output directory isn't specificied it will be output to `tcv-build`.
 
+**Options**
+
+|Option|Default|Description|
+|----|----|----|
+|-c, --config|`tailwind.config.js`|Path to your Tailwind config file|
+
+
 ## Roadmap
 
 - [x] Add static export 
