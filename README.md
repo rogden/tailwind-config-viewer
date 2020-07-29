@@ -4,6 +4,8 @@
 
 Tailwind Config Viewer is a local UI tool for visualizing your Tailwind CSS configuration file. Keep it open during development to quickly reference custom Tailwind values/classes. Easily navigate between sections of the configuration and copy class names to your clipboard by clicking on them. 
 
+**[Demo using the default Tailwind config](https://rogden.github.io/tailwind-config-viewer/)**
+
 ## Installation
 
 ### NPX
