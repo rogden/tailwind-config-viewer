@@ -60,6 +60,7 @@
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.3",
+    "tailwindcss-dark-mode": "^1.1.6",
     "vue-template-compiler": "^2.5.21"
   }
 }

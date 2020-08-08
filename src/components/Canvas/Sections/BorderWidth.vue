@@ -6,7 +6,7 @@
       class="mr-4 mb-4"
     >
       <div
-        class="mb-2 w-36 h-36 bg-gray-200 border-gray-400"
+        class="mb-2 w-36 h-36 bg-gray-200 dark:bg-gray-800 border-gray-400 dark:border-gray-700"
         :style="{
           borderWidth: value
         }"

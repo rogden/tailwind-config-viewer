@@ -12,8 +12,8 @@
     <div
       class="
         inline-block
-        text-sm text-gray-800
-        font-mono hover:text-teal-600
+        text-sm text-gray-800 dark:text-gray-400
+        font-mono hover:text-teal-600 dark-hover:text-teal-400
         cursor-pointer break-words
       "
       @click="copy"
@@ -22,7 +22,7 @@
     >
       {{ prefixClassName(label) }}
     </div>
-    <div v-if="value" class="text-sm text-gray-600 break-words">
+    <div v-if="value" class="text-sm text-gray-600 dark:text-gray-500 break-words">
       {{ value }}
     </div>
   </div>

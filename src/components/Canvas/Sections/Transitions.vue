@@ -23,10 +23,12 @@
           v-model="selectedDelayKey"
         />
       </div>
-      <label for="enableDelay" class="inline-flex items-center mt-8 ml-4">
-        <input id="enableDelay" class="mr-1" type="checkbox" v-model="enableDelay">
-        <span class="text-xs text-gray-600">Enable Delay</span>
-      </label>
+      <ToggleSwitch
+        name="enable-delay"
+        class="mt-8 ml-4"
+        v-model="enableDelay"
+        label="Enable Delay"
+      />
     </div>
     <VueDraggableResizable
       parent
@@ -38,21 +40,21 @@
       class="foo"
       h="100%"
     >
-      <div class="space-y-4">
+      <div class="space-y-6">
         <div
           v-for="(value, key) in data.timing"
           :key="key"
         >
-            <div class="transition-container relative mb-2 h-28 bg-gray-200">
-              <div
-                class="transition-container__block absolute w-28 h-28 bg-gray-400"
-                :style="{
-                  transitionTimingFunction: value,
-                  transitionDuration: selectedDuration,
-                  transitionDelay: enableDelay ? selectedDelay : '0s'
-                }">
-              </div>
+          <CanvasSectionRow class="transition-container relative" v-slot="{blockClasses}">
+            <div
+              :class="['transition-container__block absolute w-28', blockClasses]"
+              :style="{
+                transitionTimingFunction: value,
+                transitionDuration: selectedDuration,
+                transitionDelay: enableDelay ? selectedDelay : '0s'
+              }">
             </div>
+          </CanvasSectionRow>
 
           <div class="sm:flex mb-2 sm:mb-0 sm:divide-x">
             <CanvasBlockLabel
@@ -67,15 +69,19 @@
 </template>
 
 <script>
-import CanvasBlockLabel from '../CanvasBlockLabel'
-import Select from '../../Select'
 import VueDraggableResizable from 'vue-draggable-resizable'
+import CanvasBlockLabel from '../CanvasBlockLabel'
+import CanvasSectionRow from '../CanvasSectionRow'
+import Select from '../../Select'
+import ToggleSwitch from '../../ToggleSwitch'
 
 export default {
   components: {
     CanvasBlockLabel,
+    CanvasSectionRow,
     VueDraggableResizable,
-    Select
+    Select,
+    ToggleSwitch
   },
 
   props: {
@@ -132,6 +138,15 @@ export default {
     w-5;
     height: calc(100% - 52px);
     left: 100%;
+
+    .mode-dark & {
+      @apply border-gray-700;
+
+      &:after,
+      &:before {
+        @apply bg-gray-700;
+      }
+    }
 
     &:hover {
       cursor: col-resize;
