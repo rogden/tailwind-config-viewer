@@ -1,21 +1,24 @@
 <template>
   <div>
-    <div class="lg:flex mb-6">
-      <div class="flex w-full lg:w-auto mb-2 lg:mb-0">
-        <button
-          class="w-full lg:w-40 hover:bg-gray-300 py-2 px-4 text-sm rounded-tl rounded-bl border border-gray-400 focus:outline-none"
-          :class="{'bg-gray-300': selectedProp === 'p'}"
-          @click="selectedProp = 'p'">Padding</button>
-        <button
-          class="w-full lg:w-40 hover:bg-gray-300 py-2 px-4 text-sm border-t border-b border-gray-400 focus:outline-none"
-          :class="{'bg-gray-300': selectedProp === 'm'}"
-          @click="selectedProp = 'm'">Margin</button>
-        <button
-          class="w-full lg:w-40 hover:bg-gray-300 py-2 px-4 text-sm rounded-tr rounded-br border border-gray-400 focus:outline-none"
-          :class="{'bg-gray-300': selectedProp === '-m'}"
-          @click="selectedProp = '-m'">Negative Margin</button>
-      </div>
-      <div class="relative w-full lg:w-40 lg:ml-2">
+    <div class="md:flex mb-6">
+      <ButtonGroup class="mb-2 md:mb-0">
+        <Button
+          class="w-full md:w-auto"
+          :selected="selectedProp === 'p'"
+          @click="selectedProp = 'p'"
+        >
+          Padding
+        </Button>
+        <Button
+          class="w-full md:w-auto"
+          :selected="selectedProp === 'm'"
+          @click="selectedProp = 'm'">Margin</Button>
+        <Button
+          class="w-full md:w-auto"
+          :selected="selectedProp === '-m'"
+          @click="selectedProp = '-m'">Negative Margin</Button>
+      </ButtonGroup>
+      <div class="relative w-full md:w-32 md:ml-2">
         <svg
           class="absolute pointer-events-none"
           style="right: 10px; top: calc(50% - 6px);"
@@ -59,10 +62,14 @@
 <script>
 import { remToPx } from '@/utils'
 import CanvasBlockLabel from '../CanvasBlockLabel'
+import ButtonGroup from '../../ButtonGroup'
+import Button from '../../Button'
 
 export default {
   components: {
-    CanvasBlockLabel
+    CanvasBlockLabel,
+    ButtonGroup,
+    Button
   },
 
   props: {

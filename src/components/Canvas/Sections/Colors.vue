@@ -1,19 +1,28 @@
 <template>
   <div>
-    <div class="flex mb-6">
-      <button
-        class="w-full lg:w-40 hover:bg-gray-300 py-2 px-4 text-sm rounded-tl rounded-bl border border-gray-400 focus:outline-none"
-        :class="{'bg-gray-300': selectedProp === 'bg'}"
-        @click="selectedProp = 'bg'">Background</button>
-      <button
-        class="w-full lg:w-40 hover:bg-gray-300 py-2 px-4 text-sm border-t border-b border-gray-400 focus:outline-none"
-        :class="{'bg-gray-300': selectedProp === 'text'}"
-        @click="selectedProp = 'text'">Text</button>
-      <button
-        class="w-full lg:w-40 hover:bg-gray-300 py-2 px-4 text-sm rounded-tr rounded-br border border-gray-400 focus:outline-none"
-        :class="{'bg-gray-300': selectedProp === 'border'}"
-        @click="selectedProp = 'border'">Border</button>
-    </div>
+    <ButtonGroup class="mb-6">
+      <Button
+        class="w-full sm:w-32"
+        :selected="selectedProp === 'bg'"
+        @click="selectedProp = 'bg'"
+      >
+        Background
+      </Button>
+      <Button
+        class="w-full sm:w-32"
+        :selected="selectedProp === 'text'"
+        @click="selectedProp = 'text'"
+      >
+        Text
+      </Button>
+      <Button
+        class="w-full sm:w-32"
+        :selected="selectedProp === 'border'"
+        @click="selectedProp = 'border'"
+      >
+        Border
+      </Button>
+    </ButtonGroup>
     <div class="flex flex-wrap -mb-4">
       <div
         v-for="(value, prop) in data"
@@ -43,10 +52,14 @@
 
 <script>
 import CanvasBlockLabel from '../CanvasBlockLabel'
+import ButtonGroup from '../../ButtonGroup'
+import Button from '../../Button'
 
 export default {
   components: {
-    CanvasBlockLabel
+    CanvasBlockLabel,
+    ButtonGroup,
+    Button
   },
 
   props: {
