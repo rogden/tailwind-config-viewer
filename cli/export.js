@@ -4,7 +4,7 @@ const crypto = require('crypto')
 const replace = require('replace-in-file')
 const { resolveConfigToJson } = require('../lib/tailwindConfigUtils')
 
-module.exports = function (outputDir, config) {
+module.exports = function (srcDir, outputDir, config) {
   outputDir = path.resolve(process.cwd(), outputDir)
 
   fs.removeSync(outputDir)
@@ -15,7 +15,7 @@ module.exports = function (outputDir, config) {
 
   fs.writeFileSync(path.resolve(outputDir, configFileName), configJson)
 
-  fs.copySync('./dist', outputDir)
+  fs.copySync(srcDir, outputDir)
 
   replace.sync({
     files: `${outputDir}/index.html`,

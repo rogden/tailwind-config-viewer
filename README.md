@@ -45,11 +45,12 @@ The `serve` command is the default command. Running `tailwind-config-viewer` is 
 
 ### export
 
-Exports the viewer to a directory that can be uploaded to a static host. It accepts the output directory path as its sole argument. 
+Exports the viewer to a directory that can be uploaded to a static host. It accepts both the src and output directories path as arguments. 
 
-`tailwind-config-viewer export ./output-dir`
+`tailwind-config-viewer export ./source-dir ./output-dir`
 
-If an output directory isn't specificied it will be output to `tcv-build`.
+If a `source directory` isn't specificied it will use `dist`.
+If an `output directory` isn't specificied it will be output to `tcv-build`.
 
 **Options**
 

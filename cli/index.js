@@ -18,10 +18,10 @@ program
   })
 
 program
-  .command('export [outputDir]')
+  .command('export [srcDir] [outputDir]')
   .description('Create a static export of the viewer')
-  .action((outputDir = './tcv-build') => {
-    require('./export')(outputDir, program.config)
+  .action((srcDir = './dist', outputDir = './tcv-build') => {
+    require('./export')(srcDir, outputDir, program.config)
   })
 
 program.parse(process.argv)
