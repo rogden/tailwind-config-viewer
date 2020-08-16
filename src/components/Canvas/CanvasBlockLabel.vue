@@ -18,7 +18,7 @@
       @mouseover="showCopy"
       @mouseout="hideCopy"
     >
-    <div class="text-sm text-gray-600 break-words">
+    <div v-if="value" class="text-sm text-gray-600 break-words">
       {{ value }}
     </div>
   </div>
@@ -37,8 +37,7 @@ export default {
     },
 
     value: {
-      type: String,
-      required: true
+      type: String
     }
   },
 
