@@ -60,6 +60,17 @@ export default function themeComponentMapper (theme) {
       title: 'Border Width',
       data: theme.borderWidth
     },
+    addIfThemePropExists(theme.transitionTimingFunction, () => {
+      return {
+        component: 'Transitions',
+        title: 'Transitions',
+        data: {
+          timing: theme.transitionTimingFunction,
+          duration: theme.transitionDuration,
+          delay: theme.transitionDelay
+        }
+      }
+    }),
     {
       component: 'MinWidth',
       title: 'Min Width',
@@ -90,5 +101,11 @@ export default function themeComponentMapper (theme) {
       title: 'Max Height',
       data: theme.maxHeight
     }
-  ]
+  ].filter(_ => _)
+}
+
+function addIfThemePropExists (themeProp, callback) {
+  if (themeProp) return callback(themeProp)
+
+  return false
 }

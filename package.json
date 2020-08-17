@@ -46,7 +46,8 @@
     "portfinder": "^1.0.26",
     "replace-in-file": "^6.1.0",
     "tailwindcss": "^1.4.4",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-draggable-resizable": "^2.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
