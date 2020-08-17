@@ -15,7 +15,7 @@ module.exports = function (outputDir, config) {
 
   fs.writeFileSync(path.resolve(outputDir, configFileName), configJson)
 
-  fs.copySync('./dist', outputDir)
+  fs.copySync(path.resolve(__dirname, '../dist'), outputDir)
 
   replace.sync({
     files: `${outputDir}/index.html`,
