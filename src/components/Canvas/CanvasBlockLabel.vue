@@ -14,7 +14,7 @@
         inline-block
         text-sm text-gray-800
         font-mono hover:text-teal-600
-        cursor-pointer
+        cursor-pointer break-words
       "
       @click="copy"
       @mouseover="showCopy"
