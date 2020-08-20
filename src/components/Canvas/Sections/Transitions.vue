@@ -1,24 +1,15 @@
 <template>
   <div>
     <div class="md:flex items-center mb-6">
-      <!-- <label for="transition-duration" class="font-medium text-sm mb-1">Duration</label> -->
       <div class="mb-2 md:mb-0 md:mr-4">
         <CanvasBlockLabel
           :label="`duration-${selectedDurationKey}`"
         />
-        <div class="relative w-full mt-2 md:w-32">
-          <svg
-            class="absolute pointer-events-none"
-            style="right: 10px; top: calc(50% - 6px);"
-            width="11" height="11" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.657 4.243h3.76a.2.2 0 0 1 .141.341l-3.76 3.76a.2.2 0 0 1-.283 0l-3.76-3.76a.2.2 0 0 1 .142-.341h3.76z" fill="#B8C2CC"></path></svg>
-          <select
-            id="transition-duration"
-            class="h-full w-full px-4 py-2 border bg-white border-gray-400 rounded text-sm appearance-none"
-            v-model="selectedDurationKey"
-          >
-            <option v-for="(value, key) in data.duration" :key="key" :value="key">{{ value }}</option>
-          </select>
-        </div>
+        <Select
+          class="w-full mt-2 md:w-32"
+          :options="data.duration"
+          v-model="selectedDurationKey"
+        />
       </div>
       <div>
         <div class="flex items-center">
@@ -26,19 +17,11 @@
             :label="`delay-${selectedDelayKey}`"
           />
         </div>
-        <div class="relative w-full mt-2 md:w-32">
-          <svg
-            class="absolute pointer-events-none"
-            style="right: 10px; top: calc(50% - 6px);"
-            width="11" height="11" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.657 4.243h3.76a.2.2 0 0 1 .141.341l-3.76 3.76a.2.2 0 0 1-.283 0l-3.76-3.76a.2.2 0 0 1 .142-.341h3.76z" fill="#B8C2CC"></path></svg>
-          <select
-            id="transition-duration"
-            class="h-full w-full px-4 py-2 border bg-white border-gray-400 rounded text-sm appearance-none"
-            v-model="selectedDelayKey"
-          >
-            <option v-for="(value, key) in data.delay" :key="key" :value="key">{{ value }}</option>
-          </select>
-        </div>
+        <Select
+          class="w-full mt-2 md:w-32"
+          :options="data.delay"
+          v-model="selectedDelayKey"
+        />
       </div>
       <label for="enableDelay" class="inline-flex items-center mt-8 ml-4">
         <input id="enableDelay" class="mr-1" type="checkbox" v-model="enableDelay">
@@ -85,12 +68,14 @@
 
 <script>
 import CanvasBlockLabel from '../CanvasBlockLabel'
+import Select from '../../Select'
 import VueDraggableResizable from 'vue-draggable-resizable'
 
 export default {
   components: {
     CanvasBlockLabel,
-    VueDraggableResizable
+    VueDraggableResizable,
+    Select
   },
 
   props: {
