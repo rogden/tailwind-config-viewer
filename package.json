@@ -9,6 +9,7 @@
   "scripts": {
     "serve": "node cli/index.js & vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:docs": "node ./cli export ./docs -c tailwind.config.sample.js",
     "prepublishOnly": "npm run lint --no-fix && npm run build",
     "lint": "vue-cli-service lint",
     "test": "echo \"No test specified\""
@@ -46,7 +47,8 @@
     "portfinder": "^1.0.26",
     "replace-in-file": "^6.1.0",
     "tailwindcss": "^1.4.4",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-draggable-resizable": "^2.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
@@ -56,6 +58,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3",
     "vue-template-compiler": "^2.5.21"
   }
 }

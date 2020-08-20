@@ -2,11 +2,11 @@
   <div class="flex flex-wrap -mb-4">
     <div
       v-for="(value, prop) in data"
-      class="mb-4 mr-8 w-40"
+      class="mb-4 mr-8 w-36"
       :key="prop"
       >
         <div
-          class="mb-2 w-40 h-40"
+          class="mb-2 w-36 h-36"
           :style="{
             boxShadow: value
           }"

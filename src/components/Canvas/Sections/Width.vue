@@ -6,10 +6,9 @@
     >
       <div class="mb-2 bg-gray-200">
         <div
-          class="bg-gray-400"
+          class="bg-gray-400 h-28"
           :style="{
             width: value.includes('vw') ? '100%' : value,
-            height: '100px',
             maxWidth: '100%'
           }"
         />
@@ -26,11 +25,10 @@
     >
       <div class="mb-2 bg-gray-200">
         <div
-          class="bg-gray-400"
+          class="bg-gray-400 h-28"
           :style="{
             width: value,
             maxWidth: '100%',
-            height: '100px'
           }"
         />
       </div>

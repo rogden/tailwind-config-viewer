@@ -6,7 +6,7 @@
       class="mr-4 mb-4"
     >
       <div
-        class="mb-2 bg-gray-400 w-40 h-40"
+        class="mb-2 bg-gray-400 w-36 h-36"
         :style="{
           opacity: value
         }"

@@ -4,7 +4,12 @@ module.exports = {
     './src/**/*.js'
   ],
   theme: {
-    extend: {}
+    extend: {
+      spacing: {
+        '28': '7rem',
+        '36': '9rem'
+      }
+    }
   },
   variants: {
     borderColor: ['responsive', 'hover']
