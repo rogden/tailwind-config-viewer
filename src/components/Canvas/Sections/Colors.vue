@@ -27,10 +27,10 @@
       <div
         v-for="(value, prop) in data"
         :key="prop"
-        class="mb-4"
+        class="w-36 mb-4 mr-4"
       >
         <div
-          class="mr-4 mb-2 flex-none w-40 h-40 flex items-center justify-center"
+          class="mb-2 flex-none w-36 h-36 flex items-center justify-center"
           :class="{'border border-gray-300': selectedProp === 'text'}"
           :style="tileStyle(value)"
         >

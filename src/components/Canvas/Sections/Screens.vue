@@ -5,10 +5,9 @@
       :key="prop"
     >
       <div
-        class="mb-2 bg-gray-400"
+        class="mb-2 bg-gray-400 h-28"
         :style="{
-          maxWidth: value,
-          height: '100px',
+          maxWidth: value
         }"
       />
       <CanvasBlockLabel

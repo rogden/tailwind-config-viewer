@@ -43,9 +43,9 @@
           v-for="(value, key) in data.timing"
           :key="key"
         >
-            <div class="transition-container relative mb-2 h-32 bg-gray-200">
+            <div class="transition-container relative mb-2 h-28 bg-gray-200">
               <div
-                class="transition-container__block absolute w-32 h-32 bg-gray-400"
+                class="transition-container__block absolute w-28 h-28 bg-gray-400"
                 :style="{
                   transitionTimingFunction: value,
                   transitionDuration: selectedDuration,
@@ -108,7 +108,7 @@ export default {
 <style lang="scss">
 .transition-container {
   &__block {
-    right: calc(100% - theme('spacing.32'));
+    right: calc(100% - theme('spacing.28'));
   }
 
   &:hover &__block {
