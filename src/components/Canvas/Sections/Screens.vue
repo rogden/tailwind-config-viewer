@@ -1,15 +1,20 @@
 <template>
-  <div class="space-y-4">
+  <div class="space-y-6">
     <div
       v-for="(value, prop) in data"
       :key="prop"
     >
-      <div
-        class="mb-2 bg-gray-400 h-28"
-        :style="{
-          maxWidth: value
-        }"
-      />
+      <CanvasSectionRow
+        :hasBg="false"
+        v-slot="{blockClasses}"
+      >
+        <div
+          :class="blockClasses"
+          :style="{
+            maxWidth: value
+          }"
+        />
+      </CanvasSectionRow>
       <CanvasBlockLabel
         :label="`${prop}:`"
         :value="value"
@@ -20,11 +25,14 @@
 
 <script>
 import CanvasBlockLabel from '../CanvasBlockLabel'
+import CanvasSectionRow from '../CanvasSectionRow'
 
 export default {
   components: {
-    CanvasBlockLabel
+    CanvasBlockLabel,
+    CanvasSectionRow
   },
+
   props: {
     data: {
       type: Object,

@@ -24,14 +24,13 @@
         v-model="dimensionProp"
       />
     </div>
-    <div class="divide-y -my-4">
+    <div class="space-y-6">
       <div
         v-for="({value, prop}) in spacing"
         :key="prop"
-        class="py-4"
       >
         <div
-          class="mb-2 bg-gray-400"
+          class="mb-2 bg-gray-400 dark:bg-gray-700"
           :style="{
             width: value,
             height: value,

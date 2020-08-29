@@ -1,17 +1,17 @@
 <template>
-  <div class="space-y-4">
+  <div class="space-y-6">
     <div
       v-for="(value, prop) in data"
       :key="prop"
     >
-      <div class="mb-2 bg-gray-200">
+      <CanvasSectionRow v-slot="{blockClasses}">
         <div
-          class="bg-gray-400 h-28"
+          :class="blockClasses"
           :style="{
             maxWidth: value
           }"
         />
-      </div>
+      </CanvasSectionRow>
       <CanvasBlockLabel
         :label="`max-w-${prop}`"
         :value="value"
@@ -22,11 +22,14 @@
 
 <script>
 import CanvasBlockLabel from '../CanvasBlockLabel'
+import CanvasSectionRow from '../CanvasSectionRow'
 
 export default {
   components: {
-    CanvasBlockLabel
+    CanvasBlockLabel,
+    CanvasSectionRow
   },
+
   props: {
     data: {
       type: Object,

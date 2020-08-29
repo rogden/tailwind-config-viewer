@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100">
+  <div class="bg-gray-100 dark:bg-midnight">
     <div
       v-if="!config"
       style="height: calc(100vh - 63px);"
@@ -9,12 +9,19 @@
     <template v-if="config">
       <div class="pt-8 px-3 flex">
         <div class="hidden md:block flex-none h-full overflow-y-auto top-0 sticky max-h-screen">
-          <nav class="w-56 py-12 px-3 h-full">
+          <ToggleSwitch
+            name="dark-mode"
+            class="mt-3 ml-3"
+            :value="darkMode"
+            @input="$emit('toggle-dark-mode', $event)"
+            label="Dark Mode"
+          />
+          <nav class="w-56 pt-6 pb-12 px-3 h-full">
             <a
               v-for="section in configTransformed"
               :key="section.title"
               :href="`#${section.title}`"
-              class="block py-2 text-gray-600 hover:text-gray-900 text-base rounded-sm"
+              class="block py-2 text-gray-600 dark:text-gray-500 hover:text-gray-800 dark-hover:text-gray-200 text-base rounded-sm"
             >
               {{ section.title }}
             </a>
@@ -42,15 +49,24 @@
 <script>
 import themeComponentMapper from './themeComponentMapper'
 import CanvasSection from './CanvasSection'
+import ToggleSwitch from '../ToggleSwitch'
 
 export default {
   components: {
-    CanvasSection
+    CanvasSection,
+    ToggleSwitch
   },
 
   provide () {
     return {
       prefixClassName: this.prefixClassName
+    }
+  },
+
+  props: {
+    darkMode: {
+      type: Boolean,
+      required: false
     }
   },
 

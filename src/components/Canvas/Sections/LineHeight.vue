@@ -1,12 +1,11 @@
 <template>
-  <div class="divide-y -my-4">
+  <div class="space-y-6">
     <div
       v-for="(value, prop) in data"
-      class="py-4"
       :key="prop"
     >
       <div
-        class="text-lg mb-2"
+        class="text-lg mb-2 text-gray-900 dark:text-gray-500"
         :style="{
           lineHeight: value
         }"

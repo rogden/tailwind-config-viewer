@@ -6,7 +6,7 @@
       :key="prop"
       >
         <div
-          class="mb-2 w-36 h-36"
+          class="mb-2 w-36 h-36 dark:bg-gray-700"
           :style="{
             boxShadow: value
           }"

@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        midnight: '#0f0f17'
+      },
       spacing: {
         '28': '7rem',
         '36': '9rem'
@@ -12,7 +15,11 @@ module.exports = {
     }
   },
   variants: {
-    borderColor: ['responsive', 'hover']
+    backgroundColor: ['dark', 'dark-hover', 'hover'],
+    borderColor: ['dark', 'dark-hover', 'responsive', 'hover'],
+    textColor: ['dark', 'dark-hover', 'hover']
   },
-  plugins: []
+  plugins: [
+    require('tailwindcss-dark-mode')()
+  ]
 }
