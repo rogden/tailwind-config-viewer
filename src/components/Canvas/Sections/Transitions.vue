@@ -25,7 +25,7 @@
       </div>
       <ToggleSwitch
         name="enable-delay"
-        class="mt-8 ml-4"
+        class="mt-8 md:ml-4"
         v-model="enableDelay"
         label="Enable Delay"
       />
@@ -36,7 +36,7 @@
       :handles="['mr']"
       w="auto"
       h="auto"
-      :min-width="200"
+      :min-width="220"
     >
       <div class="space-y-6">
         <div
