@@ -9,7 +9,7 @@
   "scripts": {
     "serve": "node cli/index.js & vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:docs": "node ./cli export ./docs -c tailwind.config.sample.js",
+    "build:docs": "npm run build && node ./cli export ./docs -c tailwind.config.sample.js",
     "prepublishOnly": "npm run lint --no-fix && npm run build",
     "lint": "vue-cli-service lint",
     "test": "echo \"No test specified\""
