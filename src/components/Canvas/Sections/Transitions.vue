@@ -35,10 +35,8 @@
       :draggable="false"
       :handles="['mr']"
       w="auto"
-      :min-width="128"
-      max-width="auto"
-      class="foo"
-      h="100%"
+      h="auto"
+      :min-width="200"
     >
       <div class="space-y-6">
         <div
