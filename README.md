@@ -57,6 +57,56 @@ If an output directory isn't specificied it will be output to `tcv-build`.
 |----|----|----|
 |-c, --config|`tailwind.config.js`|Path to your Tailwind config file|
 
+## Configuration
+
+You can declare a `configViewer` property in your Tailwind configuration's theme object in order to customize certain aspects of the config viewer.
+
+```js
+module.exports = {
+  theme: {
+    // ...your Tailwind theme config
+    configViewer: {
+      // ... configViewer Options
+    }
+  }
+}
+```
+Currently it only supports one config option: `themeReplacements`.
+
+### themeReplacements
+
+In some instances you may want to replace values used in your Tailwind config when it is displayed in the config viewer. One scenario where this is necessary is when you are using CSS variables for your theme values:
+
+```js
+module.exports = {
+  theme: {
+    colors: {
+      black: 'var(--color-black)'
+    }
+  }
+}
+```
+
+In order for the config viewer to properly display this color, you need to provide a replacement for it:
+
+```js
+module.exports = {
+  theme: {
+    colors: {
+      black: 'var(--color-black)'
+    },
+    configViewer: {
+      themeReplacements: {
+        colors: {
+          black: '#000000'
+        }
+      }
+    }
+  }
+}
+```
+
+You can replace any value in your theme for display in the config viewer by setting the corresponding property/value in the `themeReplacements` object.
 
 ## Roadmap
 
