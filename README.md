@@ -61,6 +61,6 @@ If an output directory isn't specificied it will be output to `tcv-build`.
 ## Roadmap
 
 - [x] Add static export 
+- [x] Add Transition section
+- [x] Dark Mode toggle
 - [ ] Add support for loading custom fonts / font family section
-- [ ] Add Transition section
-- [ ] Dark Mode toggle
