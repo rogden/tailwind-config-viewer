@@ -1,5 +1,3 @@
-import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
-
 /**
  * Maps Canvas components to theme prop in TW config
  */
@@ -8,7 +6,7 @@ export default function themeComponentMapper (theme) {
     {
       component: 'Colors',
       title: 'Colors',
-      data: flattenColorPalette(theme.colors)
+      data: theme.colors
     },
     {
       component: 'Spacing',
