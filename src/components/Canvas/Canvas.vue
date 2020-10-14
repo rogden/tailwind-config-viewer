@@ -83,16 +83,7 @@ export default {
     },
 
     prefixClassName (className) {
-      return this.config.prefix ? `${this.config.prefix}-${className}` : className
-    },
-
-    fileSelected (e) {
-      const fr = new FileReader()
-      fr.onload = (e) => {
-        this.config = JSON.parse(e.target.result)
-        this.configTransformed = themeComponentMapper(this.config)
-      }
-      fr.readAsText(e.target.files[0])
+      return this.config.prefix ? `${this.config.prefix}${className}` : className
     }
   },
 
