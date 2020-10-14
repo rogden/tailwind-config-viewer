@@ -12,7 +12,8 @@
     "build:docs": "npm run build && node ./cli export ./docs -c tailwind.config.sample.js",
     "prepublishOnly": "npm run lint --no-fix && npm run build",
     "lint": "vue-cli-service lint",
-    "test": "echo \"No test specified\""
+    "test": "echo \"No test specified\"",
+    "version": "npm run build:docs && git add docs"
   },
   "bin": {
     "tailwind-config-viewer": "./cli/index.js",
