@@ -3,35 +3,35 @@
     <ButtonGroup class="mb-6">
       <Button
         class="w-full sm:w-32"
-        :selected="selectedProp === 'bg'"
-        @click="selectedProp = 'bg'"
+        :selected="selectedProp === 'backgroundColor'"
+        @click="selectedProp = 'backgroundColor'"
       >
         Background
       </Button>
       <Button
         class="w-full sm:w-32"
-        :selected="selectedProp === 'text'"
-        @click="selectedProp = 'text'"
+        :selected="selectedProp === 'textColor'"
+        @click="selectedProp = 'textColor'"
       >
         Text
       </Button>
       <Button
         class="w-full sm:w-32"
-        :selected="selectedProp === 'border'"
-        @click="selectedProp = 'border'"
+        :selected="selectedProp === 'borderColor'"
+        @click="selectedProp = 'borderColor'"
       >
         Border
       </Button>
     </ButtonGroup>
     <div class="flex flex-wrap -mb-4">
       <div
-        v-for="(value, prop) in data"
+        v-for="(value, prop) in selectedColorItems"
         :key="prop"
         class="w-36 mb-4 mr-4"
       >
         <div
           class="mb-2 flex-none w-36 h-36 flex items-center justify-center"
-          :class="{'border border-gray-300': selectedProp === 'text'}"
+          :class="{'border border-gray-300': selectedProp === 'textColor'}"
           :style="tileStyle(value)"
         >
           <span
@@ -39,10 +39,10 @@
             :style="{
               color: value
             }"
-            v-if="selectedProp === 'text'">Aa</span>
+            v-if="selectedProp === 'textColor'">Aa</span>
         </div>
         <CanvasBlockLabel
-          :label="`${selectedProp}-${prop}`"
+          :label="`${selectedPropClassPrefix}-${prop}`"
           :value="value"
         />
       </div>
@@ -71,25 +71,40 @@ export default {
 
   data () {
     return {
-      selectedProp: 'bg'
+      selectedProp: 'backgroundColor'
+    }
+  },
+
+  computed: {
+    selectedColorItems () {
+      return this.data[this.selectedProp]
+    },
+
+    selectedPropClassPrefix () {
+      const map = {
+        backgroundColor: 'bg',
+        textColor: 'text',
+        borderColor: 'border'
+      }
+
+      return map[this.selectedProp]
     }
   },
 
   methods: {
     tileStyle (value) {
-      if (this.selectedProp === 'bg') {
+      if (this.selectedProp === 'backgroundColor') {
         return {
           backgroundColor: value
         }
       }
 
-      if (this.selectedProp === 'border') {
+      if (this.selectedProp === 'borderColor') {
         return {
           border: `2px solid ${value}`
         }
       }
     }
   }
-
 }
 </script>

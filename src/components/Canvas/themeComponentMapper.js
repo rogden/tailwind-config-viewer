@@ -6,7 +6,11 @@ export default function themeComponentMapper (theme) {
     {
       component: 'Colors',
       title: 'Colors',
-      data: theme.colors
+      data: {
+        backgroundColor: theme.backgroundColor,
+        borderColor: theme.borderColor,
+        textColor: theme.textColor
+      }
     },
     {
       component: 'Spacing',
