@@ -14,7 +14,7 @@
       </p>
       <CanvasBlockLabel
         :label="`text-${prop}`"
-        :value="value"
+        :value="getLabelValue(value)"
       />
     </div>
   </div>
@@ -31,6 +31,16 @@ export default {
     data: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    getLabelValue (value) {
+      // Tailwind 2.0 returns font size as array with size and line height
+      if (Array.isArray(value)) {
+        return value[0]
+      }
+
+      return value
     }
   }
 }
