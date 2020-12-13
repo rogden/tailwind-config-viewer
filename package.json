@@ -47,7 +47,6 @@
     "open": "^7.0.4",
     "portfinder": "^1.0.26",
     "replace-in-file": "^6.1.0",
-    "tailwindcss": "^1.4.4",
     "vue": "^2.6.10",
     "vue-draggable-resizable": "^2.2.0"
   },
@@ -61,6 +60,7 @@
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.3",
+    "tailwindcss": "^1.4.4",
     "tailwindcss-dark-mode": "^1.1.6",
     "vue-template-compiler": "^2.5.21"
   }
