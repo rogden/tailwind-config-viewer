@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2020-12-13
+
+### Added
+
+- Ability to serve config viewer via middleware
+
+### Fixed
+
+- themeReplacements not working correctly [Issue](https://github.com/rogden/tailwind-config-viewer/issues/18).
+- Labels were displaying -DEFAULT for certain values when used with Tailwind 2.0
+- Font Size labels were displaying array instead of font size value when used with Tailwind 2.0
+
+### Changed
+
+- Tailwind is now peer dependency. This change allows the resolving of the Tailwind config to use the same version of Tailwind as your project. Previously, if you project was using Tailwind 2.0, the config displayed in the config viewer would use the Config Viewers version of tailwind resulting in the wrong default values in some instances.
+
 ## [1.2.4] - 2020-10-31
 
 ### Fixed
