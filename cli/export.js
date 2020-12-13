@@ -4,13 +4,13 @@ const crypto = require('crypto')
 const replace = require('replace-in-file')
 const { resolveConfigToJson } = require('../lib/tailwindConfigUtils')
 
-module.exports = function (outputDir, config) {
+module.exports = function (outputDir, configPath) {
   outputDir = path.resolve(process.cwd(), outputDir)
 
   fs.removeSync(outputDir)
   fs.mkdirSync(outputDir)
 
-  const configJson = resolveConfigToJson(config)
+  const configJson = resolveConfigToJson(configPath)
   const configFileName = generateConfigFileNameFromJson(configJson)
 
   fs.writeFileSync(path.resolve(outputDir, configFileName), configJson)

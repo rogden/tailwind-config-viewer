@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+const { resolveConfigPath } = require('../lib/tailwindConfigUtils')
 const program = require('commander')
-
 program
-  .option('-c, --config <path>', 'Path to your Tailwind config file', 'tailwind.config.js')
+  .option('-c, --config <path>', 'Path to your Tailwind config file', './tailwind.config.js')
 
 program
   .command('serve', { isDefault: true })
@@ -12,16 +12,20 @@ program
   .action(args => {
     require('../server')({
       port: args.port,
-      tailwindConfigPath: program.config,
+      tailwindConfigProvider: () => {
+        const configPath = resolveConfigPath(program.config)
+        delete require.cache[configPath]
+        return require(configPath)
+      },
       shouldOpen: args.open
-    })
+    }).start()
   })
 
 program
   .command('export [outputDir]')
   .description('Create a static export of the viewer')
   .action((outputDir = './tcv-build') => {
-    require('./export')(outputDir, program.config)
+    require('./export')(outputDir, resolveConfigPath(program.config))
   })
 
 program.parse(process.argv)
