@@ -8,22 +8,17 @@ Tailwind Config Viewer is a local UI tool for visualizing your Tailwind CSS conf
 
 ## Installation
 
-### NPX
-Run `npx tailwind-config-viewer` from within the directory that contains your Tailwind configuration file.
-
-### Globally
-`npm i tailwind-config-viewer -g`
-
-### Locally
 `npm i tailwind-config-viewer -D`
 
-When installing locally, you can add an entry into the package.json scripts field to run and open the viewer:
+You can add an entry into the package.json scripts field to run and open the viewer:
 
 ```json
 "scripts": {
   "tailwind-config-viewer": "tailwind-config-viewer -o"
 }
 ```
+
+Or you can run `npx tailwind-config-viewer -o` 
 
 ## Usage
 
