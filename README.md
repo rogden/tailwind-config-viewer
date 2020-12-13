@@ -97,16 +97,14 @@ module.exports = {
     },
     configViewer: {
       themeReplacements: {
-        colors: {
-          black: '#000000'
-        }
+        'var(--color-black)': '#000000'
       }
     }
   }
 }
 ```
 
-You can replace any value in your theme for display in the config viewer by setting the corresponding property/value in the `themeReplacements` object.
+You can replace any value in your theme for display in the config viewer by setting the corresponding `valueToFind: valueToReplace` in the `themeReplacements` object.
 
 ## Roadmap
 
