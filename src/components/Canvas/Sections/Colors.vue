@@ -27,10 +27,10 @@
       <div
         v-for="(value, prop) in selectedColorItems"
         :key="prop"
-        class="w-36 mb-4 mr-4"
+        class="w-full md:w-36 mb-4 md:mr-4"
       >
         <div
-          class="mb-2 flex-none w-36 h-36 flex items-center justify-center"
+          class="mb-2 flex-none w-full md:w-36 h-16 md:h-36 flex items-center justify-center"
           :class="{'border border-gray-300': selectedProp === 'textColor'}"
           :style="tileStyle(value)"
         >
