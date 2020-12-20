@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="font-sans" :class="{'mode-dark': darkMode}">
+  <div id="app" class="font-sans">
     <div class="flex justify-between items-center bg-white dark:bg-gray-900 border-b dark:border-gray-900 p-4 text-gray-700 dark:text-gray-500 text-xl font-bold">
       Tailwind Config Viewer
       <a
@@ -24,21 +24,30 @@ export default {
 
   data () {
     return {
-      darkMode: localStorage.getItem('tcvDarkMode') === 'true'
+      darkMode: false
     }
   },
 
   watch: {
     darkMode (value) {
+      document.querySelector('body').classList.toggle('mode-dark', value)
       localStorage.setItem('tcvDarkMode', value)
     }
+  },
+
+  mounted () {
+    this.darkMode = localStorage.getItem('tcvDarkMode') === 'true'
   }
 }
 </script>
 
 <style>
 body {
-  background-color: #fff !important;
+  @apply bg-white;
+}
+
+body.mode-dark {
+  @apply bg-midnight;
 }
 
 #app {
