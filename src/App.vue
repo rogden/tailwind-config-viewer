@@ -24,13 +24,13 @@ export default {
 
   data () {
     return {
-      darkMode: localStorage.getItem('darkMode') === 'true'
+      darkMode: localStorage.getItem('tcvDarkMode') === 'true'
     }
   },
 
   watch: {
     darkMode (value) {
-      localStorage.setItem('darkMode', value)
+      localStorage.setItem('tcvDarkMode', value)
     }
   }
 }
