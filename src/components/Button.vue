@@ -7,7 +7,10 @@
       hover:bg-gray-300 dark-hover:bg-gray-800
       focus:outline-none rounded
     "
-    :class="{'bg-gray-300 dark:bg-gray-800': selected}"
+    :class="{
+      'bg-gray-300 dark:bg-gray-800': selected,
+      'bg-white dark:bg-gray-900': !selected
+    }"
     v-on="$listeners"
   >
     <slot />
