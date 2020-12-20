@@ -1,30 +1,32 @@
 <template>
   <div>
-    <div class="md:flex mb-6">
-      <ButtonGroup class="mb-2 md:mb-0">
-        <Button
-          class="w-full sm:w-32"
-          :selected="selectedProp === 'p'"
-          @click="selectedProp = 'p'"
-        >
-          Padding
-        </Button>
-        <Button
-          class="w-full sm:w-32"
-          :selected="selectedProp === 'm'"
-          @click="selectedProp = 'm'">Margin</Button>
-        <Button
-          class="w-full sm:w-auto"
-          :selected="selectedProp === '-m'"
-          @click="selectedProp = '-m'">Negative Margin</Button>
-      </ButtonGroup>
-      <Select
-        class="w-full md:w-32 md:ml-2"
-        :options="$options.dimensionOptions"
-        v-model="dimensionProp"
-      />
-    </div>
-    <div class="space-y-6">
+    <StickySectionHeader id="section-spacing">
+      <div class="md:flex">
+        <ButtonGroup class="mb-2 md:mb-0">
+          <Button
+            class="w-full sm:w-32"
+            :selected="selectedProp === 'p'"
+            @click="selectedProp = 'p'"
+          >
+            Padding
+          </Button>
+          <Button
+            class="w-full sm:w-32"
+            :selected="selectedProp === 'm'"
+            @click="selectedProp = 'm'">Margin</Button>
+          <Button
+            class="w-full sm:w-auto"
+            :selected="selectedProp === '-m'"
+            @click="selectedProp = '-m'">Negative Margin</Button>
+        </ButtonGroup>
+        <Select
+          class="w-full md:w-32 md:ml-2"
+          :options="$options.dimensionOptions"
+          v-model="dimensionProp"
+        />
+      </div>
+    </StickySectionHeader>
+    <div class="space-y-6 mt-6">
       <div
         v-for="({value, prop}) in spacing"
         :key="prop"
@@ -51,13 +53,15 @@ import CanvasBlockLabel from '../CanvasBlockLabel'
 import ButtonGroup from '../../ButtonGroup'
 import Button from '../../Button'
 import Select from '../../Select'
+import StickySectionHeader from '../../StickySectionHeader'
 
 export default {
   components: {
     CanvasBlockLabel,
     ButtonGroup,
     Button,
-    Select
+    Select,
+    StickySectionHeader
   },
 
   props: {

@@ -1,29 +1,31 @@
 <template>
   <div>
-    <ButtonGroup class="mb-6">
-      <Button
-        class="w-full sm:w-32"
-        :selected="selectedProp === 'backgroundColor'"
-        @click="selectedProp = 'backgroundColor'"
-      >
-        Background
-      </Button>
-      <Button
-        class="w-full sm:w-32"
-        :selected="selectedProp === 'textColor'"
-        @click="selectedProp = 'textColor'"
-      >
-        Text
-      </Button>
-      <Button
-        class="w-full sm:w-32"
-        :selected="selectedProp === 'borderColor'"
-        @click="selectedProp = 'borderColor'"
-      >
-        Border
-      </Button>
-    </ButtonGroup>
-    <div class="flex flex-wrap -mb-4">
+    <StickySectionHeader id="section-colors">
+      <ButtonGroup>
+        <Button
+          class="w-full sm:w-32"
+          :selected="selectedProp === 'backgroundColor'"
+          @click="selectedProp = 'backgroundColor'"
+        >
+          Background
+        </Button>
+        <Button
+          class="w-full sm:w-32"
+          :selected="selectedProp === 'textColor'"
+          @click="selectedProp = 'textColor'"
+        >
+          Text
+        </Button>
+        <Button
+          class="w-full sm:w-32"
+          :selected="selectedProp === 'borderColor'"
+          @click="selectedProp = 'borderColor'"
+        >
+          Border
+        </Button>
+      </ButtonGroup>
+    </StickySectionHeader>
+    <div class="flex flex-wrap -mb-4 mt-6">
       <div
         v-for="(value, prop) in selectedColorItems"
         :key="prop"
@@ -54,12 +56,14 @@
 import CanvasBlockLabel from '../CanvasBlockLabel'
 import ButtonGroup from '../../ButtonGroup'
 import Button from '../../Button'
+import StickySectionHeader from '../../StickySectionHeader'
 
 export default {
   components: {
     CanvasBlockLabel,
     ButtonGroup,
-    Button
+    Button,
+    StickySectionHeader
   },
 
   props: {
