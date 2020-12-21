@@ -2,12 +2,28 @@
   <div class="relative">
     <div
       :class="{show: showCopyTooltip}"
-      class="tooltip pointer-events-none absolute py-1 px-2 text-sm bg-gray-800 text-white rounded">{{ copyText }}</div>
+      class="tooltip pointer-events-none absolute z-50 py-1 px-2 text-sm shadow-md bg-gray-800 dark:bg-midnight text-white rounded transition duration-200 overflow-hidden"
+      >
+        {{ copyText }}
+        <br>
+        <div
+          class="-mx-2 mt-1 px-2 py-1 border-t border-gray-700 dark:border-gray-800"
+          v-if="prefixedClassesToCopy.length > 1"
+        >
+          <div
+            v-for="className in prefixedClassesToCopy"
+            class="text-teal-400"
+            :key="className"
+          >
+            {{ className }}
+          </div>
+        </div>
+      </div>
     <input
       class="hidden"
       readonly
       ref="label"
-      :value="prefixClassName(label)"
+      :value="copyValue"
     >
     <div
       class="
@@ -29,6 +45,8 @@
 </template>
 
 <script>
+let copyClasses = []
+
 export default {
   inject: [
     'prefixClassName'
@@ -48,24 +66,46 @@ export default {
   data () {
     return {
       showCopyTooltip: false,
-      copyText: 'Copy'
+      copyText: 'Copy',
+      copyClasses: []
+    }
+  },
+
+  computed: {
+    copyValue () {
+      return this.prefixedClassesToCopy.join(' ')
+    },
+
+    prefixedClassesToCopy () {
+      return this.copyClasses.map(this.prefixClassName)
     }
   },
 
   methods: {
-    copy () {
-      // input needs to be visible in order for text to be selected/copied
-      this.$refs.label.classList.remove('hidden')
-      this.$refs.label.select()
-      this.copyText = 'Copied'
-      document.execCommand('copy')
-      this.$refs.label.blur()
-      // hide input now that we copied the text to clipoard
-      this.$refs.label.classList.add('hidden')
-      window.getSelection().removeAllRanges()
+    copy (e) {
+      if (e.shiftKey) {
+        !copyClasses.includes(this.label) && copyClasses.push(this.label)
+      } else {
+        copyClasses = [this.label]
+      }
+
+      this.copyClasses = copyClasses
+
+      this.$nextTick(() => {
+        // input needs to be visible in order for text to be selected/copied
+        this.$refs.label.classList.remove('hidden')
+        this.$refs.label.select()
+        this.copyText = copyClasses.length > 1 ? `Copied (${copyClasses.length})` : 'Copied'
+        document.execCommand('copy')
+        this.$refs.label.blur()
+        // hide input now that we copied the text to clipoard
+        this.$refs.label.classList.add('hidden')
+        window.getSelection().removeAllRanges()
+      })
     },
 
     showCopy () {
+      this.copyClasses = []
       this.copyText = 'Copy'
       this.showCopyTooltip = true
     },
