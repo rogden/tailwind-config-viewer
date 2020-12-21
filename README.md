@@ -106,6 +106,10 @@ module.exports = {
 
 You can replace any value in your theme for display in the config viewer by setting the corresponding `valueToFind: valueToReplace` in the `themeReplacements` object.
 
+## Usage Tips
+
+- `Shift+Click` on the Tailwind class names to copy multiple to your clipboard at once
+
 ## Roadmap
 
 - [x] Add static export 
