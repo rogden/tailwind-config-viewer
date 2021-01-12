@@ -56,7 +56,7 @@
 
           <div class="sm:flex mb-2 sm:mb-0 sm:divide-x">
             <CanvasBlockLabel
-              :label="`ease-${key}`"
+              :label="removeDefaultSuffix(`ease-${key}`)"
               :value="value"
             />
           </div>
@@ -72,6 +72,7 @@ import CanvasBlockLabel from '../CanvasBlockLabel'
 import CanvasSectionRow from '../CanvasSectionRow'
 import Select from '../../Select'
 import ToggleSwitch from '../../ToggleSwitch'
+import { removeDefaultSuffix } from '@/utils'
 
 export default {
   components: {
@@ -105,6 +106,10 @@ export default {
     selectedDelay () {
       return this.data.delay[this.selectedDelayKey]
     }
+  },
+
+  methods: {
+    removeDefaultSuffix
   }
 }
 </script>
