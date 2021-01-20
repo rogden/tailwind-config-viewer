@@ -68,6 +68,9 @@ export default {
     data: {
       type: Object,
       required: true
+    },
+    config: {
+      type: Object
     }
   },
 
@@ -93,8 +96,8 @@ export default {
       return Object
         .keys(this.data)
         .sort((keyA, keyB) => {
-          const aInPx = this.data[keyA].indexOf('rem') !== -1 ? remToPx(this.data[keyA]) : parseFloat(this.data[keyA])
-          const bInPx = this.data[keyB].indexOf('rem') !== -1 ? remToPx(this.data[keyB]) : parseFloat(this.data[keyB])
+          const aInPx = this.data[keyA].indexOf('rem') !== -1 ? remToPx(this.data[keyA], this.config) : parseFloat(this.data[keyA])
+          const bInPx = this.data[keyB].indexOf('rem') !== -1 ? remToPx(this.data[keyB], this.config) : parseFloat(this.data[keyB])
           return aInPx - bInPx
         })
         .map(key => {

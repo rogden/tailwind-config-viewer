@@ -47,9 +47,11 @@
 </template>
 
 <script>
+import defu from 'defu'
 import themeComponentMapper from './themeComponentMapper'
 import CanvasSection from './CanvasSection'
 import ToggleSwitch from '../ToggleSwitch'
+import defaultOptions from '../../defaultOptions'
 
 export default {
   components: {
@@ -59,7 +61,8 @@ export default {
 
   provide () {
     return {
-      prefixClassName: this.prefixClassName
+      prefixClassName: this.prefixClassName,
+      getConfig: this.getConfig
     }
   },
 
@@ -84,12 +87,17 @@ export default {
 
     prefixClassName (className) {
       return this.config.prefix ? `${this.config.prefix}${className}` : className
+    },
+
+    getConfig () {
+      return this.config
     }
   },
 
   async mounted () {
     const config = await fetch(window.__TCV_CONFIG.configPath)
     this.config = await config.json()
+    this.config = defu(this.config, defaultOptions)
     this.configTransformed = themeComponentMapper(this.config.theme)
   }
 }

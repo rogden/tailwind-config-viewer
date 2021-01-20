@@ -7,7 +7,7 @@
     "email": "ryaneogden@gmail.com"
   },
   "scripts": {
-    "serve": "node cli/index.js & vue-cli-service serve",
+    "serve": "node cli/index.js -c tailwind.config.sample.js & vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:docs": "npm run build && node ./cli export ./docs -c tailwind.config.sample.js",
     "prepublishOnly": "npm run lint --no-fix && npm run build",
@@ -54,6 +54,7 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "core-js": "^2.6.5",
+    "defu": "^3.2.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.26.10",

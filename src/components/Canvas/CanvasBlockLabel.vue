@@ -39,17 +39,20 @@
       {{ prefixClassName(label) }}
     </div>
     <div v-if="value" class="text-sm text-gray-600 dark:text-gray-500 break-words">
-      {{ value }}
+      {{ displayValue }}
     </div>
   </div>
 </template>
 
 <script>
+import { appendPxToRems } from '@/utils'
+
 let copyClasses = []
 
 export default {
   inject: [
-    'prefixClassName'
+    'prefixClassName',
+    'getConfig'
   ],
 
   props: {
@@ -74,6 +77,10 @@ export default {
   computed: {
     copyValue () {
       return this.prefixedClassesToCopy.join(' ')
+    },
+
+    displayValue () {
+      return appendPxToRems(this.value, this.getConfig())
     },
 
     prefixedClassesToCopy () {
