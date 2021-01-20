@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-6">
     <div
-      v-for="(value, prop) in data"
+      v-for="(value, prop) in data.lineHeight"
       :key="prop"
     >
       <div
@@ -10,8 +10,8 @@
           lineHeight: value
         }"
       >
-        <p>The quick brown fox jumped over the lazy dog.</p>
-        <p>The quick brown fox jumped over the lazy dog.</p>
+        <p>{{ data.typographyExample }}</p>
+        <p>{{ data.typographyExample }}</p>
       </div>
       <CanvasBlockLabel
         :label="`leading-${prop}`"

@@ -20,22 +20,34 @@ export default function themeComponentMapper (theme) {
     {
       component: 'FontSizes',
       title: 'Font Sizes',
-      data: theme.fontSize
+      data: {
+        fontSize: theme.fontSize,
+        typographyExample: theme.configViewer.typographyExample
+      }
     },
     {
       component: 'FontWeight',
       title: 'Font Weight',
-      data: theme.fontWeight
+      data: {
+        fontWeight: theme.fontWeight,
+        typographyExample: theme.configViewer.typographyExample
+      }
     },
     {
       component: 'LetterSpacing',
       title: 'Letter Spacing',
-      data: theme.letterSpacing
+      data: {
+        letterSpacing: theme.letterSpacing,
+        typographyExample: theme.configViewer.typographyExample
+      }
     },
     {
       component: 'LineHeight',
       title: 'Line Height',
-      data: theme.lineHeight
+      data: {
+        lineHeight: theme.lineHeight,
+        typographyExample: theme.configViewer.typographyExample
+      }
     },
     {
       component: 'Screens',

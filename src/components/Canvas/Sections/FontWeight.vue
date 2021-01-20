@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-6">
     <div
-      v-for="(value, prop) in data"
+      v-for="(value, prop) in data.fontWeight"
       :key="prop"
     >
       <p
@@ -10,7 +10,7 @@
           fontWeight: value
         }"
       >
-        The quick brown fox jumped over the lazy dog.
+        {{ data.typographyExample }}
       </p>
       <CanvasBlockLabel
         :label="`font-${prop}`"
