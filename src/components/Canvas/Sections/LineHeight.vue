@@ -10,8 +10,8 @@
           lineHeight: value
         }"
       >
-        <p>{{ data.typographyExample || 'The quick brown fox jumped over the lazy dog.' }}</p>
-        <p>{{ data.typographyExample || 'The quick brown fox jumped over the lazy dog.' }}</p>
+        <p>{{ data.typographyExample }}</p>
+        <p>{{ data.typographyExample }}</p>
       </div>
       <CanvasBlockLabel
         :label="`leading-${prop}`"

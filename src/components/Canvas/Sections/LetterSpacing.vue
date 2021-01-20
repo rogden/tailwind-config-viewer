@@ -10,7 +10,7 @@
           letterSpacing: value
         }"
       >
-        {{ data.typographyExample || 'The quick brown fox jumped over the lazy dog.' }}
+        {{ data.typographyExample }}
       </p>
       <CanvasBlockLabel
         :label="`tracking-${prop}`"

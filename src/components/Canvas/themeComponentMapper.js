@@ -22,7 +22,7 @@ export default function themeComponentMapper (theme) {
       title: 'Font Sizes',
       data: {
         fontSize: theme.fontSize,
-        typographyExample: addIfThemePropExists(theme.configViewer, () => true) && theme.configViewer.typographyExample
+        typographyExample: theme.configViewer.typographyExample
       }
     },
     {
@@ -30,7 +30,7 @@ export default function themeComponentMapper (theme) {
       title: 'Font Weight',
       data: {
         fontWeight: theme.fontWeight,
-        typographyExample: addIfThemePropExists(theme.configViewer, () => true) && theme.configViewer.typographyExample
+        typographyExample: theme.configViewer.typographyExample
       }
     },
     {
@@ -38,7 +38,7 @@ export default function themeComponentMapper (theme) {
       title: 'Letter Spacing',
       data: {
         letterSpacing: theme.letterSpacing,
-        typographyExample: addIfThemePropExists(theme.configViewer, () => true) && theme.configViewer.typographyExample
+        typographyExample: theme.configViewer.typographyExample
       }
     },
     {
@@ -46,7 +46,7 @@ export default function themeComponentMapper (theme) {
       title: 'Line Height',
       data: {
         lineHeight: theme.lineHeight,
-        typographyExample: addIfThemePropExists(theme.configViewer, () => true) && theme.configViewer.typographyExample
+        typographyExample: theme.configViewer.typographyExample
       }
     },
     {
