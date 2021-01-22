@@ -16,7 +16,7 @@
         />
       </CanvasSectionRow>
       <CanvasBlockLabel
-        :label="`${prop}:`"
+        :label="`${prop}${config.separator}`"
         :value="value"
       />
     </div>
@@ -37,6 +37,9 @@ export default {
     data: {
       type: Object,
       required: true
+    },
+    config: {
+      type: Object
     }
   }
 }
