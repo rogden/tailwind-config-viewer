@@ -5,9 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2020-12-21
+
+### Added
+
+- [#24](https://github.com/rogden/tailwind-config-viewer/issues/24) `typographyExample` config option
+- `baseFontSize` config option
+- [#23](https://github.com/rogden/tailwind-config-viewer/issues/23) Display equivalent pixel value for any rem value 
+- [#25](https://github.com/rogden/tailwind-config-viewer/issues/25) Highlight current section in side nav 
+
+### Fixed
+
+- Screen section class name prefix now uses separator value from config file
+- Remove DEFAULT suffix from ease class name when using Tailwind 2.0
+
+### Changed
+
+- Moved Vue related deps to devDeps to prevent uncessary install 
+
 ## [1.4.0] - 2020-12-21
 
-## Added
+### Added
 
 - Copy multiple classes via shift+click
 - Sticky Color and Spacing section header controls for easier access while scrolling
