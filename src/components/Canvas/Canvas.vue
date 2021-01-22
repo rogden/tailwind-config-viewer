@@ -21,8 +21,15 @@
               v-for="section in configTransformed"
               :key="section.title"
               :href="`#${section.title}`"
-              class="block py-2 text-gray-600 dark:text-gray-500 hover:text-gray-800 dark-hover:text-gray-200 text-base rounded-sm"
+              class="relative flex items-center py-2 hover:text-gray-800 dark-hover:text-gray-200 text-base rounded-sm"
+              :class="[activeSection === section ? 'text-gray-800 dark:text-gray-200' : 'text-gray-600 dark:text-gray-500']"
+              @click="setActiveSection(section)"
             >
+              <div
+                class="absolute rounded-full bg-gray-500 dark:bg-gray-600 transition duration-200"
+                :class="[activeSection === section ? 'visible opacity-100' : 'invisible opacity-0']"
+                :style="{width: '5px', height: '5px', left: '-12px'}"
+              />
               {{ section.title }}
             </a>
           </nav>
@@ -34,11 +41,18 @@
             :title="section.title"
             :id="section.title"
           >
-            <component
-              :is="sectionComponent(section.component)"
-              :data="section.data"
-              :config="config"
-            />
+            <Intersect
+              :threshold="[0.0]"
+              rootMargin="-40% 0px -60% 0px"
+              @enter="setActiveSection(section)"
+              @leaave="setActiveSection(null)"
+            >
+              <component
+                :is="sectionComponent(section.component)"
+                :data="section.data"
+                :config="config"
+              />
+            </Intersect>
           </CanvasSection>
         </div>
       </div>
@@ -48,6 +62,7 @@
 
 <script>
 import defu from 'defu'
+import Intersect from 'vue-intersect'
 import themeComponentMapper from './themeComponentMapper'
 import CanvasSection from './CanvasSection'
 import ToggleSwitch from '../ToggleSwitch'
@@ -56,7 +71,8 @@ import defaultOptions from '../../defaultOptions'
 export default {
   components: {
     CanvasSection,
-    ToggleSwitch
+    ToggleSwitch,
+    Intersect
   },
 
   provide () {
@@ -75,6 +91,7 @@ export default {
 
   data () {
     return {
+      activeSection: null,
       config: null,
       configTransformed: null
     }
@@ -91,6 +108,10 @@ export default {
 
     getConfig () {
       return this.config
+    },
+
+    setActiveSection (section) {
+      this.activeSection = section
     }
   },
 

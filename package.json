@@ -63,6 +63,7 @@
     "tailwindcss-dark-mode": "^1.1.6",
     "vue": "^2.6.10",
     "vue-draggable-resizable": "^2.2.0",
+    "vue-intersect": "^1.1.6",
     "vue-template-compiler": "^2.5.21"
   }
 }
