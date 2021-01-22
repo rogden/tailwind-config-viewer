@@ -71,8 +71,6 @@ module.exports = {
   }
 }
 ```
-Currently it only supports one config option: `themeReplacements`.
-
 ### themeReplacements
 
 In some instances you may want to replace values used in your Tailwind config when it is displayed in the config viewer. One scenario where this is necessary is when you are using CSS variables for your theme values:
@@ -106,6 +104,36 @@ module.exports = {
 
 You can replace any value in your theme for display in the config viewer by setting the corresponding `valueToFind: valueToReplace` in the `themeReplacements` object.
 
+### baseFontSize
+
+The config viewer displays the pixel equivalent of any rem values. By default `baseFontSize` is set to 16 to mirror the default root element font size in most browsers. If you plan on using a different root font size in your project, you should set the value of `baseFontSize` to match.
+
+```js
+module.exports = {
+  theme: {
+    // ...your Tailwind theme config
+    configViewer: {
+      baseFontSize: 20 // default is 16
+    }
+  }
+}
+```
+
+### typographyExample
+
+You can change the default sentence used in the typography sections (Font Size, Letter Spacing etc.)
+by setting the `typographyExample` option:
+
+```js
+module.exports = {
+  theme: {
+    // ...your Tailwind theme config
+    configViewer: {
+      typographyExample: 'The quick brown fox jumped over the lazy dog.'
+    }
+  }
+}
+```
 ## Usage Tips
 
 - `Shift+Click` on the Tailwind class names to copy multiple to your clipboard at once
