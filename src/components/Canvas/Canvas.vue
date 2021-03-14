@@ -21,8 +21,8 @@
               v-for="section in configTransformed"
               :key="section.title"
               :href="`#${section.title}`"
-              class="relative flex items-center py-2 hover:text-gray-800 dark-hover:text-gray-200 text-base rounded-sm"
-              :class="[activeSection === section ? 'text-gray-800 dark:text-gray-200' : 'text-gray-600 dark:text-gray-500']"
+              class="relative flex items-center py-2 hover:text-gray-900 dark-hover:text-gray-200 text-base rounded-sm"
+              :class="[activeSection === section ? 'text-gray-900 dark:text-gray-200' : 'text-gray-700 dark:text-gray-500']"
               @click="setActiveSection(section)"
             >
               <div

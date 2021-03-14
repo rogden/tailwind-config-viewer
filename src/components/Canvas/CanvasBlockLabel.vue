@@ -38,7 +38,7 @@
     >
       {{ prefixClassName(label) }}
     </div>
-    <div v-if="value" class="text-sm text-gray-600 dark:text-gray-500 break-words">
+    <div v-if="value" class="text-sm text-gray-700 dark:text-gray-500 break-words">
       {{ displayValue }}
     </div>
   </div>
