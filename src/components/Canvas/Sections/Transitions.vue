@@ -1,68 +1,72 @@
 <template>
   <div>
-    <div class="md:flex items-center mb-6">
-      <div class="mb-2 md:mb-0 md:mr-4">
-        <CanvasBlockLabel
-          :label="`duration-${selectedDurationKey}`"
-        />
-        <Select
-          class="w-full mt-2 md:w-32"
-          :options="data.duration"
-          v-model="selectedDurationKey"
-        />
-      </div>
-      <div>
-        <div class="flex items-center">
+    <StickySectionHeader id="section-transitions">
+      <div class="md:flex items-center">
+        <div class="mb-2 md:mb-0 md:mr-4">
           <CanvasBlockLabel
-            :label="`delay-${selectedDelayKey}`"
+            :label="`duration-${selectedDurationKey}`"
+          />
+          <Select
+            class="w-full mt-2 md:w-32"
+            :options="data.duration"
+            v-model="selectedDurationKey"
           />
         </div>
-        <Select
-          class="w-full mt-2 md:w-32"
-          :options="data.delay"
-          v-model="selectedDelayKey"
-        />
-      </div>
-      <ToggleSwitch
-        name="enable-delay"
-        class="mt-8 md:ml-4"
-        v-model="enableDelay"
-        label="Enable Delay"
-      />
-    </div>
-    <VueDraggableResizable
-      parent
-      :draggable="false"
-      :handles="['mr']"
-      w="auto"
-      h="auto"
-      :min-width="220"
-    >
-      <div class="space-y-6">
-        <div
-          v-for="(value, key) in data.timing"
-          :key="key"
-        >
-          <CanvasSectionRow class="transition-container relative" v-slot="{blockClasses}">
-            <div
-              :class="['transition-container__block absolute w-28', blockClasses]"
-              :style="{
-                transitionTimingFunction: value,
-                transitionDuration: selectedDuration,
-                transitionDelay: enableDelay ? selectedDelay : '0s'
-              }">
-            </div>
-          </CanvasSectionRow>
-
-          <div class="sm:flex mb-2 sm:mb-0 sm:divide-x">
+        <div>
+          <div class="flex items-center">
             <CanvasBlockLabel
-              :label="removeDefaultSuffix(`ease-${key}`)"
-              :value="value"
+              :label="`delay-${selectedDelayKey}`"
             />
           </div>
+          <Select
+            class="w-full mt-2 md:w-32"
+            :options="data.delay"
+            v-model="selectedDelayKey"
+          />
         </div>
+        <ToggleSwitch
+          name="enable-delay"
+          class="mt-8 md:ml-4"
+          v-model="enableDelay"
+          label="Enable Delay"
+        />
       </div>
-    </VueDraggableResizable>
+    </StickySectionHeader>
+    <div class="mt-6">
+      <VueDraggableResizable
+        parent
+        :draggable="false"
+        :handles="['mr']"
+        w="auto"
+        h="auto"
+        :min-width="220"
+      >
+        <div class="space-y-6">
+          <div
+            v-for="(value, key) in data.timing"
+            :key="key"
+          >
+            <CanvasSectionRow class="transition-container relative" v-slot="{blockClasses}">
+              <div
+                :class="['transition-container__block absolute w-28', blockClasses]"
+                :style="{
+                  transitionTimingFunction: value,
+                  transitionDuration: selectedDuration,
+                  transitionDelay: enableDelay ? selectedDelay : '0s'
+                }">
+              </div>
+            </CanvasSectionRow>
+
+            <div class="sm:flex mb-2 sm:mb-0 sm:divide-x">
+              <CanvasBlockLabel
+                :label="removeDefaultSuffix(`ease-${key}`)"
+                :value="value"
+              />
+            </div>
+          </div>
+        </div>
+      </VueDraggableResizable>
+    </div>
   </div>
 </template>
 
@@ -71,6 +75,7 @@ import VueDraggableResizable from 'vue-draggable-resizable'
 import CanvasBlockLabel from '../CanvasBlockLabel'
 import CanvasSectionRow from '../CanvasSectionRow'
 import Select from '../../Select'
+import StickySectionHeader from '../../StickySectionHeader'
 import ToggleSwitch from '../../ToggleSwitch'
 import { removeDefaultSuffix } from '@/utils'
 
@@ -80,6 +85,7 @@ export default {
     CanvasSectionRow,
     VueDraggableResizable,
     Select,
+    StickySectionHeader,
     ToggleSwitch
   },
 
