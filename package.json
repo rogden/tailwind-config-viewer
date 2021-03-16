@@ -47,6 +47,9 @@
     "portfinder": "^1.0.26",
     "replace-in-file": "^6.1.0"
   },
+  "peerDependencies": {
+    "tailwindcss": "1 || 2 || 2.0.1-compat"
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-eslint": "^3.7.0",
