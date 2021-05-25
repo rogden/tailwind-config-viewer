@@ -16,7 +16,7 @@
             @input="$emit('toggle-dark-mode', $event)"
             label="Dark Mode"
           />
-          <nav class="w-56 pt-6 pb-12 px-3 h-full">
+          <nav class="pt-6 pr-20 pb-12 px-3 h-full">
             <a
               v-for="section in configTransformed"
               :key="section.title"
@@ -34,7 +34,7 @@
             </a>
           </nav>
         </div>
-        <div>
+        <div class="md:pl-4">
           <CanvasSection
             v-for="section in configTransformed"
             :key="section.title"
