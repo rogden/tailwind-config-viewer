@@ -34,7 +34,7 @@
             </a>
           </nav>
         </div>
-        <div class="pl-4">
+        <div class="md:pl-4">
           <CanvasSection
             v-for="section in configTransformed"
             :key="section.title"
