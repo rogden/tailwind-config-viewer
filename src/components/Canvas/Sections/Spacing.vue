@@ -32,7 +32,7 @@
         :key="prop"
       >
         <div
-          class="mb-2 bg-gray-400 dark:bg-gray-700"
+          class="mb-2 bg-gray-500 dark:bg-gray-700"
           :style="{
             width: value,
             height: value,

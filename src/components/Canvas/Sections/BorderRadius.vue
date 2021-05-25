@@ -2,7 +2,7 @@
   <div class="flex flex-wrap -mb-4">
     <div v-for="(value, prop) in data" :key="prop" class="w-full md:w-36 md:mr-4 mb-4">
       <div
-        class="bg-gray-400 dark:bg-gray-700 mb-2 md:w-36 h-36"
+        class="bg-gray-500 dark:bg-gray-700 mb-2 md:w-36 h-36"
         :style="{
           borderRadius: value
         }"
