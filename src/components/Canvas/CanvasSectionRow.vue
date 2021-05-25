@@ -21,7 +21,7 @@ export default {
 
   data () {
     return {
-      blockClasses: 'bg-gray-600 dark:bg-gray-700 h-28'
+      blockClasses: 'bg-gray-500 dark:bg-gray-700 h-28'
     }
   }
 }
