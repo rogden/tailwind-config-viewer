@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-6">
     <div
-      v-for="(value, prop) in data.fontSize"
+      v-for="([prop, value]) in fontSizes"
       :key="prop"
     >
       <p
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { remToPx } from '@/utils'
 import CanvasBlockLabel from '../CanvasBlockLabel'
 
 export default {
@@ -31,6 +32,25 @@ export default {
     data: {
       type: Object,
       required: true
+    },
+    config: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    fontSizes () {
+      return Object.entries(this.data.fontSize).sort((a, b) => {
+        if (remToPx(a[1], this.config) > remToPx(b[1], this.config)) {
+          return 1
+        }
+
+        if (remToPx(a[1], this.config) < remToPx(b[1], this.config)) {
+          return -1
+        }
+
+        return 0
+      })
     }
   },
   methods: {
