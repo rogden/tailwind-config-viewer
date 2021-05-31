@@ -4,6 +4,7 @@
 export default function themeComponentMapper (theme) {
   return [
     {
+      themeKey: 'backgroundColor',
       component: 'Colors',
       title: 'Colors',
       data: {
