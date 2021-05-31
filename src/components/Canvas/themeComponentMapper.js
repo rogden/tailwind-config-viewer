@@ -13,11 +13,13 @@ export default function themeComponentMapper (theme) {
       }
     },
     {
+      themeKey: 'spacing',
       component: 'Spacing',
       title: 'Spacing',
       data: theme.spacing
     },
     {
+      themeKey: 'fontSize',
       component: 'FontSizes',
       title: 'Font Sizes',
       data: {
@@ -26,6 +28,7 @@ export default function themeComponentMapper (theme) {
       }
     },
     {
+      themeKey: 'fontWeight',
       component: 'FontWeight',
       title: 'Font Weight',
       data: {
@@ -34,6 +37,7 @@ export default function themeComponentMapper (theme) {
       }
     },
     {
+      themeKey: 'letterSpacing',
       component: 'LetterSpacing',
       title: 'Letter Spacing',
       data: {
@@ -42,6 +46,7 @@ export default function themeComponentMapper (theme) {
       }
     },
     {
+      themeKey: 'lineHeight',
       component: 'LineHeight',
       title: 'Line Height',
       data: {
@@ -50,76 +55,80 @@ export default function themeComponentMapper (theme) {
       }
     },
     {
+      themeKey: 'screens',
       component: 'Screens',
       title: 'Screens',
       data: theme.screens
     },
     {
+      themeKey: 'boxShadow',
       component: 'Shadows',
       title: 'Shadows',
       data: theme.boxShadow
     },
     {
+      themeKey: 'opacity',
       component: 'Opacity',
       title: 'Opacity',
       data: theme.opacity
     },
     {
+      themeKey: 'borderRadius',
       component: 'BorderRadius',
       title: 'Border Radius',
       data: theme.borderRadius
     },
     {
+      themeKey: 'borderWidth',
       component: 'BorderWidth',
       title: 'Border Width',
       data: theme.borderWidth
     },
-    addIfThemePropExists(theme.transitionTimingFunction, () => {
-      return {
-        component: 'Transitions',
-        title: 'Transitions',
-        data: {
-          timing: theme.transitionTimingFunction,
-          duration: theme.transitionDuration,
-          delay: theme.transitionDelay
-        }
-      }
-    }),
     {
+      themeKey: 'transitionTimingFunction',
+      component: 'Transitions',
+      title: 'Transitions',
+      data: {
+        timing: theme.transitionTimingFunction,
+        duration: theme.transitionDuration,
+        delay: theme.transitionDelay
+      }
+    },
+    {
+      themeKey: 'minWidth',
       component: 'MinWidth',
       title: 'Min Width',
       data: theme.minWidth
     },
     {
+      themeKey: 'width',
       component: 'Width',
       title: 'Width',
       data: theme.width
     },
     {
+      themeKey: 'maxWidth',
       component: 'MaxWidth',
       title: 'Max Width',
       data: theme.maxWidth
     },
     {
+      themeKey: 'minHeight',
       component: 'MinHeight',
       title: 'Min Height',
       data: theme.minHeight
     },
     {
+      themeKey: 'height',
       component: 'Height',
       title: 'Height',
       data: theme.height
     },
     {
+      themeKey: 'maxHeight',
       component: 'MaxHeight',
       title: 'Max Height',
       data: theme.maxHeight
     }
-  ].filter(_ => _)
-}
-
-function addIfThemePropExists (themeProp, callback) {
-  if (themeProp) return callback(themeProp)
-
-  return false
+  ].filter(({ themeKey }) => theme[themeKey])
 }
