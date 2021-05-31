@@ -8,15 +8,16 @@
     </div>
     <template v-if="config">
       <div class="pt-8 px-3 flex">
-        <div class="hidden md:block flex-none h-full overflow-y-auto top-0 sticky max-h-screen">
+        <div class="hidden md:block flex-none h-full overflow-y-auto top-0 sticky max-h-screen pt-2">
           <ToggleSwitch
             name="dark-mode"
-            class="mt-3 ml-3"
+            class="mb-3 ml-3"
             :value="darkMode"
             @input="$emit('toggle-dark-mode', $event)"
             label="Dark Mode"
           />
-          <nav class="pt-6 pr-20 pb-12 px-3 h-full">
+          <div class="ml-3 text-sm text-gray-700 dark:text-gray-500">Tailwind v{{ config.tailwindVersion }}</div>
+          <nav class="pt-3 pr-20 pb-12 px-3 h-full">
             <a
               v-for="section in configTransformed"
               :key="section.title"
