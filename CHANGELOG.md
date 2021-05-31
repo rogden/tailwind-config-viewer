@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0]
+
+### Added
+
+- [#30](https://github.com/rogden/tailwind-config-viewer/issues/30) Output current Tailwind version
+
+### Fixed
+
+- [#32](https://github.com/rogden/tailwind-config-viewer/issues/32) Font sizes don't always appear sorted by font size
+- [#33](https://github.com/rogden/tailwind-config-viewer/issues/33) ESLint warning in stickyEvents module
+- [#44](https://github.com/rogden/tailwind-config-viewer/issues/44) Don't display sections that have been disabled in corePlugins
+
+### Changed
+
+- Various UI improvements ([#35](https://github.com/rogden/tailwind-config-viewer/issues/24) [#36](https://github.com/rogden/tailwind-config-viewer/issues/36), [#39](https://github.com/rogden/tailwind-config-viewer/issues/39),) by [@olets](https://github.com/olets)
+
+
 ## [1.5.1] - 2021-03-16
 
 ### Fixed
@@ -17,8 +34,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#24](https://github.com/rogden/tailwind-config-viewer/issues/24) `typographyExample` config option
 - `baseFontSize` config option
-- [#23](https://github.com/rogden/tailwind-config-viewer/issues/23) Display equivalent pixel value for any rem value 
-- [#25](https://github.com/rogden/tailwind-config-viewer/issues/25) Highlight current section in side nav 
+- [#23](https://github.com/rogden/tailwind-config-viewer/issues/23) Display equivalent pixel value for any rem value
+- [#25](https://github.com/rogden/tailwind-config-viewer/issues/25) Highlight current section in side nav
 
 ### Fixed
 
@@ -27,7 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Moved Vue related deps to devDeps to prevent uncessary install 
+- Moved Vue related deps to devDeps to prevent uncessary install
 
 ## [1.4.0] - 2020-12-21
 
