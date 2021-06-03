@@ -7,14 +7,14 @@
       <p
         class="mb-2 leading-none text-gray-900 dark:text-gray-500"
         :style="{
-          fontSize: value
+          fontSize: getFontSizeValue(value)
         }"
       >
         {{ data.typographyExample }}
       </p>
       <CanvasBlockLabel
         :label="`text-${prop}`"
-        :value="getLabelValue(value)"
+        :value="getFontSizeValue(value)"
       />
     </div>
   </div>
@@ -54,7 +54,7 @@ export default {
     }
   },
   methods: {
-    getLabelValue (value) {
+    getFontSizeValue (value) {
       // Tailwind 2.0 returns font size as array with size and line height
       if (Array.isArray(value)) {
         return value[0]
