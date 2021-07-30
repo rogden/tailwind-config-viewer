@@ -1,8 +1,14 @@
+import defu from 'defu'
+import { makeDefaultCustomSection } from '@/defaultOptions'
+
 /**
  * Maps Canvas components to theme prop in TW config
  */
 export default function themeComponentMapper (theme) {
-  return [
+  const customSections = theme.configViewer.customSections
+    .map((customSection) => defu(customSection, makeDefaultCustomSection(theme)))
+
+  const sections = [
     {
       themeKey: 'backgroundColor',
       component: 'Colors',
@@ -132,4 +138,6 @@ export default function themeComponentMapper (theme) {
       data: theme.maxHeight
     }
   ].filter(({ themeKey }) => theme[themeKey])
+
+  return customSections.concat(sections)
 }

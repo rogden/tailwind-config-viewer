@@ -134,6 +134,40 @@ module.exports = {
   }
 }
 ```
+
+### customSections
+
+You can render custom sections within the viewer by setting the `customSections` option:
+
+```js
+module.exports = {
+  theme: {
+    // ...your Tailwind theme config
+    configViewer: {
+      customSections: [
+        {
+          title: 'Typography',
+          data: {
+            sectionRows: [
+              {
+                utilityName: 'tw-h1',
+                utilityValues: ['tw-text-h1', 'tw-font-semibold', 'tw-tracking-widest', 'line-height: 3.2rem;'],
+                styles: {
+                  fontSize: '4.8rem',
+                  lineHeight: '7.2rem',
+                  fontWeight: 'bold'
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+```
+
 ## Usage Tips
 
 - `Shift+Click` on the Tailwind class names to copy multiple to your clipboard at once
