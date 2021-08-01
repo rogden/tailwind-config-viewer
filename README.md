@@ -148,6 +148,7 @@ module.exports = {
         {
           title: 'Typography',
           data: {
+            type: 'text',
             sectionRows: [
               {
                 utilityName: 'tw-h1',
