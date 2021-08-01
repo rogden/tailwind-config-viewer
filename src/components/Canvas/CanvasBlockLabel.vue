@@ -38,9 +38,12 @@
     >
       {{ prefixClassName(label) }}
     </div>
-    <div v-if="value" class="text-sm text-gray-700 dark:text-gray-500 break-words">
-      {{ displayValue }}
-    </div>
+
+    <slot name="value" v-bind:valueBoxClasses="valueBoxClasses">
+      <div v-if="value" :class="valueBoxClasses">
+        {{ displayValue }}
+      </div>
+    </slot>
   </div>
 </template>
 
@@ -75,6 +78,10 @@ export default {
   },
 
   computed: {
+    valueBoxClasses () {
+      return 'text-sm text-gray-700 dark:text-gray-500 break-words'
+    },
+
     copyValue () {
       return this.prefixedClassesToCopy.join(' ')
     },
