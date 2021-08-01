@@ -10,7 +10,9 @@ const defaultOptions = {
 
 export const makeDefaultCustomSection = (theme) => ({
   component: 'CustomSection',
+
   data: {
+    type: 'text',
     typographyExample: theme.configViewer.typographyExample
   }
 })

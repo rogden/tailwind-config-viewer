@@ -4,7 +4,9 @@
       v-for="row in rows"
       :key="row.utilityName"
     >
-      <div :style="row.styles">{{ data.typographyExample }}</div>
+      <div :style="row.styles">
+        <template v-if="data.type === 'text'">{{ data.typographyExample }}</template>
+      </div>
 
       <CanvasBlockLabel
         :label="row.utilityName"
@@ -25,10 +27,6 @@ import CanvasBlockLabel from '../CanvasBlockLabel'
 export default {
   components: { CanvasBlockLabel },
 
-  inject: [
-    'getConfig'
-  ],
-
   props: {
     data: {
       type: Object,
@@ -43,7 +41,7 @@ export default {
 
   computed: {
     rows () {
-      return this.$props.data.sectionRows.map((sectionRow) => ({
+      return this.data.sectionRows.map((sectionRow) => ({
         ...sectionRow,
         utilityValue: sectionRow.utilityValues.join(', ')
       }))
