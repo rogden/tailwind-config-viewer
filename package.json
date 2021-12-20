@@ -48,7 +48,7 @@
     "replace-in-file": "^6.1.0"
   },
   "peerDependencies": {
-    "tailwindcss": "1 || 2 || 2.0.1-compat"
+    "tailwindcss": "1 || 2 || 2.0.1-compat || 3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
