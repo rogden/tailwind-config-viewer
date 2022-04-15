@@ -134,6 +134,30 @@ module.exports = {
   }
 }
 ```
+
+### fonts
+
+You can add custom fonts to the config viewer that are used
+in your Tailwind config
+```js
+module.exports = {
+  theme: {
+    // ...your Tailwind theme config
+    configViewer: {
+      fonts: [
+        {
+          fontFamily: 'Open Sans',
+          fontWeight: '400',
+          fontStyle: 'normal',
+          fontDisplay: 'swap',
+          src: "url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap)"
+        }
+      ]
+    }
+  }
+}
+```
+
 ## Usage Tips
 
 - `Shift+Click` on the Tailwind class names to copy multiple to your clipboard at once
