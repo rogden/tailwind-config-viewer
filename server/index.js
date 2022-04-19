@@ -8,11 +8,14 @@ const { resolveConfig } = require('../lib/tailwindConfigUtils')
 function createServer ({
   port = 3000,
   tailwindConfigProvider,
-  shouldOpen
+  shouldOpen,
+  routerPrefix = ''
 }) {
   const app = new Koa()
-  const router = new Router()
-
+  let router = new Router()
+  if(routerPrefix){
+		router = new Router({prefix: routerPrefix})
+	}
   router.get('/config.json', (ctx) => {
     ctx.body = resolveConfig(tailwindConfigProvider())
   })
