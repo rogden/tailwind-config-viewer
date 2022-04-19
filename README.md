@@ -167,4 +167,4 @@ module.exports = {
 - [x] Add static export 
 - [x] Add Transition section
 - [x] Dark Mode toggle
-- [ ] Add support for loading custom fonts / font family section
+- [x] Add support for loading custom fonts / font family section
