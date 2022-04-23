@@ -32,12 +32,12 @@ export default {
     }
   },
   computed: {
-    fontFamilies() {
+    fontFamilies () {
       return Object.entries(this.data.fontFamily)
     }
   },
   methods: {
-    getFontFamilyValue(value) {
+    getFontFamilyValue (value) {
       if (Array.isArray(value)) {
         // arbitrary length
         return value.slice(0, 9).join(', ')

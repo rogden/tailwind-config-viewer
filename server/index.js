@@ -3,7 +3,7 @@ const serve = require('koa-static')
 const Router = require('@koa/router')
 const portfinder = require('portfinder')
 const open = require('open')
-const { resolveConfig, resolveCSS } = require('../lib/tailwindConfigUtils')
+const { resolveConfig } = require('../lib/tailwindConfigUtils')
 
 function createServer ({
   port = 3000,
@@ -15,11 +15,6 @@ function createServer ({
 
   router.get('/config.json', (ctx) => {
     ctx.body = resolveConfig(tailwindConfigProvider())
-  })
-
-  router.get('/config.css', ctx => {
-    ctx.type = 'text/plain; charset=utf-8'
-    ctx.body = resolveCSS(tailwindConfigProvider())
   })
 
   app
