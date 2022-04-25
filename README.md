@@ -143,6 +143,7 @@ You can add custom fonts to the config viewer that are used in your Tailwind con
 
 * If multiple font weights are provided in a single url (see example) only the last weight will be used.
 * If fonts are in your Tailwind theme config but urls are not provided they will not display correctly (currently with no warning).
+* Fonts can only be provided via urls not local files. If this something you need, please open a ticket or a pull request.
 
 ```js
 module.exports = {
