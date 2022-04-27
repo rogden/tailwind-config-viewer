@@ -39,8 +39,7 @@ export default {
   methods: {
     getFontFamilyValue (value) {
       if (Array.isArray(value)) {
-        // arbitrary length
-        return value.slice(0, 9).join(', ')
+        return value.join(', ')
       }
       return value
     }
