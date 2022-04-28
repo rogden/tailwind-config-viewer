@@ -1,6 +1,3 @@
-/**
- * Maps Canvas components to theme prop in TW config
- */
 export default function fontTagCreator (theme) {
   let fonts = theme.configViewer.fonts
 
