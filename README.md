@@ -134,6 +134,36 @@ module.exports = {
   }
 }
 ```
+
+### fonts
+
+You can add custom fonts to the config viewer that are used in your Tailwind config by passing in a font url as a string, or an array of font urls.
+
+**Notes**
+
+* If multiple font weights are provided in a single url (see example) only the last weight will be used.
+* If fonts are in your Tailwind theme config but urls are not provided they will not display correctly (currently with no warning).
+* Fonts can only be provided via urls not local files. If this something you need, please open a ticket or a pull request.
+
+```js
+module.exports = {
+  theme: {
+    // ...your Tailwind theme config
+    configViewer: {
+      // single font
+      fonts: "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      // or multiple fonts
+      fonts: [
+        "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
+        "https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" // <- only 500 will be used
+      ]
+        }
+      ]
+    }
+  }
+}
+```
+
 ## Usage Tips
 
 - `Shift+Click` on the Tailwind class names to copy multiple to your clipboard at once
@@ -143,4 +173,4 @@ module.exports = {
 - [x] Add static export 
 - [x] Add Transition section
 - [x] Dark Mode toggle
-- [ ] Add support for loading custom fonts / font family section
+- [x] Add support for loading custom fonts / font family section

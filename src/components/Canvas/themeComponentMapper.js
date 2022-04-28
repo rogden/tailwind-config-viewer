@@ -29,6 +29,15 @@ export default function themeComponentMapper (theme) {
       }
     },
     {
+      themeKey: 'fontFamily',
+      component: 'FontFamilies',
+      title: 'Font Families',
+      data: {
+        fontFamily: theme.fontFamily,
+        typographyExample: theme.configViewer.typographyExample
+      }
+    },
+    {
       themeKey: 'fontWeight',
       component: 'FontWeight',
       title: 'Font Weight',

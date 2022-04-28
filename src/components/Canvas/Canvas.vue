@@ -65,6 +65,7 @@
 import defu from 'defu'
 import Intersect from 'vue-intersect'
 import themeComponentMapper from './themeComponentMapper'
+import fontTagCreator from './fontTagCreator'
 import CanvasSection from './CanvasSection'
 import ToggleSwitch from '../ToggleSwitch'
 import defaultOptions from '../../defaultOptions'
@@ -121,6 +122,7 @@ export default {
     this.config = await config.json()
     this.config = defu(this.config, defaultOptions)
     this.configTransformed = themeComponentMapper(this.config.theme)
+    fontTagCreator(this.config.theme)
   }
 }
 </script>
