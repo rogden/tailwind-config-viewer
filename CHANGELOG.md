@@ -5,22 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.6.3]
+## [1.7.0] 2022-04-27 
+
+### Added
+- [#43](https://github.com/rogden/tailwind-config-viewer/issues/43) Add Font Famililes section with custom font support
+
+## [1.6.3] 2021-12-19
 
 ### Fixed
 - [#51](https://github.com/rogden/tailwind-config-viewer/issues/51) Tailwind v3 not included in peerDependencies
 
-## [1.6.2]
+## [1.6.2] 2021-06-03
 
 ### Fixed
 - [#46](https://github.com/rogden/tailwind-config-viewer/issues/46) Incorrect rendered font size when font size is declared as an array in Tailwind 2.0 (bug introduced in v1.6.0)
 
-## [1.6.1]
+## [1.6.1] 2021-05-31
 
 ### Fixed
 - Color section removed from config viewer
 
-## [1.6.0]
+## [1.6.0] 2021-05-31
 
 ### Added
 
