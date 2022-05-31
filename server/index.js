@@ -12,10 +12,9 @@ function createServer ({
   routerPrefix = ''
 }) {
   const app = new Koa()
-  let router = new Router()
-  if(routerPrefix){
-		router = new Router({prefix: routerPrefix})
-	}
+
+  const router = new Router({ prefix: routerPrefix })
+
   router.get('/config.json', (ctx) => {
     ctx.body = resolveConfig(tailwindConfigProvider())
   })
