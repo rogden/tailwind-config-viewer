@@ -14,7 +14,7 @@
       </p>
       <CanvasBlockLabel
         :label="`font-${prop}`"
-        :value="value"
+        :value="String(value)"
       />
     </div>
   </div>
