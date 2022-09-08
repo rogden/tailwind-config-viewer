@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.2] 2022-09-07
+
+### Fixed
+- [#67](https://github.com/rogden/tailwind-config-viewer/issues/67) Class names and values not displaying when fontWeights are defined in config
+
 ## [1.7.1] 2022-05-31
 
 ### Fixed
