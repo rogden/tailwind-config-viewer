@@ -12,5 +12,7 @@ export const remToPx = (rem, config) => {
 export const appendPxToRems = (rem, config) => {
   if (rem.search('rem') === -1) return rem
 
-  return `${rem} (${remToPx(rem, config)}px)`
+  return rem.replaceAll(/(\d|\.)*rem/g, (value) => {
+    return `${value} (${remToPx(value, config)}px)`
+  })
 }
