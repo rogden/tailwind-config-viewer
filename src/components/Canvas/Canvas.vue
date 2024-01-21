@@ -92,7 +92,7 @@ export default {
 
   methods: {
     sectionComponent (component) {
-      return require(`./Sections/${component}.vue`).default
+      return import(`./Sections/${component}.vue`).default
     },
 
     prefixClassName (className) {
@@ -109,8 +109,8 @@ export default {
   },
 
   async mounted () {
-    const config = await fetch(window.__TCV_CONFIG.configPath)
-    this.config = await config.json()
+    this.config = JSON.stringify(__TAILWIND_CONFIG__)
+    this.config = JSON.parse(this.config)
     this.config = defu(this.config, defaultOptions)
     this.configTransformed = themeComponentMapper(this.config.theme)
     fontTagCreator(this.config.theme)
