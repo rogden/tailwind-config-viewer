@@ -59,6 +59,7 @@ import defu from 'defu'
 import themeComponentMapper from './themeComponentMapper'
 import fontTagCreator from './fontTagCreator'
 import CanvasSection from './CanvasSection.vue'
+import sections from './Sections'
 import ToggleSwitch from '../ToggleSwitch.vue'
 import defaultOptions from '../../defaultOptions'
 
@@ -92,7 +93,7 @@ export default {
 
   methods: {
     sectionComponent (component) {
-      return import(`./Sections/${component}.vue`).default
+      return sections[component]
     },
 
     prefixClassName (className) {
