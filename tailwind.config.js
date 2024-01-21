@@ -1,4 +1,5 @@
-module.exports = {
+export default {
+  darkMode: 'class',
   purge: [
     './src/**/*.vue',
     './src/**/*.js'
@@ -14,13 +15,4 @@ module.exports = {
       }
     }
   },
-  variants: {
-    backgroundColor: ['dark', 'dark-hover', 'hover'],
-    backgroundOpacity: ['dark'],
-    borderColor: ['dark', 'dark-hover', 'responsive', 'hover'],
-    textColor: ['dark', 'dark-hover', 'hover']
-  },
-  plugins: [
-    require('tailwindcss-dark-mode')()
-  ]
 }

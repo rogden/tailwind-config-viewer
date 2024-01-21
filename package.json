@@ -54,12 +54,13 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.3",
     "@vue/eslint-config-standard": "^4.0.0",
+    "autoprefixer": "^10.4.17",
     "defu": "^3.2.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "postcss": "^8.4.33",
     "sass": "^1.26.10",
-    "tailwindcss": "^1.4.4",
-    "tailwindcss-dark-mode": "^1.1.6",
+    "tailwindcss": "^3.4.1",
     "vite": "^5.0.12",
     "vue": "^3.4.15",
     "vue-draggable-resizable": "^3.0.0-beta.2"
