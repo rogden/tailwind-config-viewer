@@ -36,6 +36,6 @@ export default {
   Screens,
   Shadows,
   Spacing,
-  // Transitions,
+  Transitions,
   Width
 }

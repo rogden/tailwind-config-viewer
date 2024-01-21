@@ -62,6 +62,6 @@
     "tailwindcss-dark-mode": "^1.1.6",
     "vite": "^5.0.12",
     "vue": "^3.4.15",
-    "vue-draggable-resizable": "^2.2.0"
+    "vue-draggable-resizable": "^3.0.0-beta.2"
   }
 }
