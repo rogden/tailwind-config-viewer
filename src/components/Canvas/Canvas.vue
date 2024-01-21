@@ -42,18 +42,11 @@
             :title="section.title"
             :id="section.title"
           >
-            <Intersect
-              :threshold="[0.0]"
-              rootMargin="-40% 0px -60% 0px"
-              @enter="setActiveSection(section)"
-              @leaave="setActiveSection(null)"
-            >
-              <component
-                :is="sectionComponent(section.component)"
-                :data="section.data"
-                :config="config"
-              />
-            </Intersect>
+            <component
+              :is="sectionComponent(section.component)"
+              :data="section.data"
+              :config="config"
+            />
           </CanvasSection>
         </div>
       </div>
@@ -63,18 +56,16 @@
 
 <script>
 import defu from 'defu'
-import Intersect from 'vue-intersect'
 import themeComponentMapper from './themeComponentMapper'
 import fontTagCreator from './fontTagCreator'
-import CanvasSection from './CanvasSection'
-import ToggleSwitch from '../ToggleSwitch'
+import CanvasSection from './CanvasSection.vue'
+import ToggleSwitch from '../ToggleSwitch.vue'
 import defaultOptions from '../../defaultOptions'
 
 export default {
   components: {
     CanvasSection,
     ToggleSwitch,
-    Intersect
   },
 
   provide () {
