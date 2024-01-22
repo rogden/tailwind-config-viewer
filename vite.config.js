@@ -1,10 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
-import { resolveConfig }  from './lib/tailwindConfigUtils'
-
-const resolveConfigPath = (configPath) =>
-  path.resolve(process.cwd(), configPath);
+import { resolveConfig, resolveConfigPath }  from './lib/tailwindConfigUtils'
 
 export default async ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
