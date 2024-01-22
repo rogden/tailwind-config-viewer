@@ -30,9 +30,8 @@
   ],
   "license": "MIT",
   "files": [
-    "server",
     "cli",
-    "dist",
+    "src",
     "lib"
   ],
   "engines": {
