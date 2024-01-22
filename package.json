@@ -39,9 +39,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "commander": "^6.0.0",
-    "fs-extra": "^9.0.1",
-    "replace-in-file": "^6.1.0"
+    "commander": "^6.0.0"
   },
   "peerDependencies": {
     "tailwindcss": "1 || 2 || 2.0.1-compat || 3"

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const { resolveConfigPath } = require('../lib/tailwindConfigUtils')
 const program = require('commander')
-const { createServer } = require('vite')
+const { createServer, build } = require('vite')
 const { resolve } = require('path')
 
 program
@@ -32,8 +32,16 @@ program
 program
   .command('export [outputDir]')
   .description('Create a static export of the viewer')
-  .action((outputDir = './tcv-build') => {
-    require('./export')(outputDir, resolveConfigPath(program.config))
+  .action(async (outputDir = './tcv-build') => {
+    process.env = { ...process.env, VITE_TCV_CONFIG: program.config };
+
+    await build({
+      root: resolve(__dirname, '../'),
+      configFile: resolve(__dirname, '../vite.config.js'),
+      build: {
+        outDir: resolve(outputDir)
+      }
+    })
   })
 
 program.parse(process.argv)
