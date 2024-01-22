@@ -10,7 +10,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "build:docs": "npm run build && node ./cli export ./docs -c tailwind.config.sample.js",
+    "build:docs": "VITE_TCG_CONFIG=tailwind.config.sample.js npm run build -- --outDir ./docs",
     "prepublishOnly": "npm run lint --no-fix && npm run build",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "test": "echo \"No test specified\"",
