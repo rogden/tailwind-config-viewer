@@ -1,7 +1,10 @@
-module.exports = {
-  purge: [
-    './src/**/*.vue',
-    './src/**/*.js'
+import { resolve } from 'path'
+
+export default {
+  darkMode: 'class',
+  content: [
+    `${resolve(__dirname)}/src/**/*.vue`,
+    `${resolve(__dirname)}/src/**/*.js`,
   ],
   theme: {
     extend: {
@@ -14,13 +17,4 @@ module.exports = {
       }
     }
   },
-  variants: {
-    backgroundColor: ['dark', 'dark-hover', 'hover'],
-    backgroundOpacity: ['dark'],
-    borderColor: ['dark', 'dark-hover', 'responsive', 'hover'],
-    textColor: ['dark', 'dark-hover', 'hover']
-  },
-  plugins: [
-    require('tailwindcss-dark-mode')()
-  ]
 }

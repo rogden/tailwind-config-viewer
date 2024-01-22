@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import CanvasBlockLabel from '../CanvasBlockLabel'
-import CanvasSectionRow from '../CanvasSectionRow'
+import CanvasBlockLabel from '../CanvasBlockLabel.vue'
+import CanvasSectionRow from '../CanvasSectionRow.vue'
 
 export default {
   components: {

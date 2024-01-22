@@ -42,18 +42,11 @@
             :title="section.title"
             :id="section.title"
           >
-            <Intersect
-              :threshold="[0.0]"
-              rootMargin="-40% 0px -60% 0px"
-              @enter="setActiveSection(section)"
-              @leaave="setActiveSection(null)"
-            >
-              <component
-                :is="sectionComponent(section.component)"
-                :data="section.data"
-                :config="config"
-              />
-            </Intersect>
+            <component
+              :is="sectionComponent(section.component)"
+              :data="section.data"
+              :config="config"
+            />
           </CanvasSection>
         </div>
       </div>
@@ -63,18 +56,17 @@
 
 <script>
 import defu from 'defu'
-import Intersect from 'vue-intersect'
 import themeComponentMapper from './themeComponentMapper'
 import fontTagCreator from './fontTagCreator'
-import CanvasSection from './CanvasSection'
-import ToggleSwitch from '../ToggleSwitch'
+import CanvasSection from './CanvasSection.vue'
+import sections from './Sections'
+import ToggleSwitch from '../ToggleSwitch.vue'
 import defaultOptions from '../../defaultOptions'
 
 export default {
   components: {
     CanvasSection,
     ToggleSwitch,
-    Intersect
   },
 
   provide () {
@@ -101,7 +93,7 @@ export default {
 
   methods: {
     sectionComponent (component) {
-      return require(`./Sections/${component}.vue`).default
+      return sections[component]
     },
 
     prefixClassName (className) {
@@ -118,8 +110,8 @@ export default {
   },
 
   async mounted () {
-    const config = await fetch(window.__TCV_CONFIG.configPath)
-    this.config = await config.json()
+    this.config = JSON.stringify(__TAILWIND_CONFIG__)
+    this.config = JSON.parse(this.config)
     this.config = defu(this.config, defaultOptions)
     this.configTransformed = themeComponentMapper(this.config.theme)
     fontTagCreator(this.config.theme)

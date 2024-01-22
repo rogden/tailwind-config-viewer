@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import CanvasBlockLabel from '../CanvasBlockLabel'
+import CanvasBlockLabel from '../CanvasBlockLabel.vue'
 import { removeDefaultSuffix } from '@/utils'
 
 export default {

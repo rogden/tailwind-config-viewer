@@ -53,10 +53,10 @@
 </template>
 
 <script>
-import CanvasBlockLabel from '../CanvasBlockLabel'
-import ButtonGroup from '../../ButtonGroup'
-import Button from '../../Button'
-import StickySectionHeader from '../../StickySectionHeader'
+import CanvasBlockLabel from '../CanvasBlockLabel.vue'
+import ButtonGroup from '../../ButtonGroup.vue'
+import Button from '../../Button.vue'
+import StickySectionHeader from '../../StickySectionHeader.vue'
 
 export default {
   components: {

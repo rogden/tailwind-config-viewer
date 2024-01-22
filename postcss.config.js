@@ -1,6 +1,10 @@
+const { resolve } = require('path')
+
 module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer')
-  ]
+  plugins: {
+    tailwindcss: {
+      config: resolve(__dirname, './tailwind.config.js')
+    },
+    autoprefixer: {},
+  }
 }

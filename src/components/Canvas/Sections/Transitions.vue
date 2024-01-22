@@ -72,11 +72,11 @@
 
 <script>
 import VueDraggableResizable from 'vue-draggable-resizable'
-import CanvasBlockLabel from '../CanvasBlockLabel'
-import CanvasSectionRow from '../CanvasSectionRow'
-import Select from '../../Select'
-import StickySectionHeader from '../../StickySectionHeader'
-import ToggleSwitch from '../../ToggleSwitch'
+import CanvasBlockLabel from '../CanvasBlockLabel.vue'
+import CanvasSectionRow from '../CanvasSectionRow.vue'
+import Select from '../../Select.vue'
+import StickySectionHeader from '../../StickySectionHeader.vue'
+import ToggleSwitch from '../../ToggleSwitch.vue'
 import { removeDefaultSuffix } from '@/utils'
 
 export default {

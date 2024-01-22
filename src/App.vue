@@ -30,7 +30,7 @@ export default {
 
   watch: {
     darkMode (value) {
-      document.querySelector('body').classList.toggle('mode-dark', value)
+      document.querySelector('body').classList.toggle('dark', value)
       localStorage.setItem('tcvDarkMode', value)
     }
   },
@@ -46,7 +46,7 @@ body {
   @apply bg-white;
 }
 
-body.mode-dark {
+body.dark {
   @apply bg-midnight;
 }
 

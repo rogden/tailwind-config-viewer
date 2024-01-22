@@ -22,7 +22,7 @@
 
 <script>
 import { remToPx } from '@/utils'
-import CanvasBlockLabel from '../CanvasBlockLabel'
+import CanvasBlockLabel from '../CanvasBlockLabel.vue'
 
 export default {
   components: {
