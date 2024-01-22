@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 const { resolveConfigPath } = require('../lib/tailwindConfigUtils')
 const program = require('commander')
+const { createServer } = require('vite')
+const { resolve } = require('path')
+
 program
   .option('-c, --config <path>', 'Path to your Tailwind config file', './tailwind.config.js')
 
@@ -9,16 +12,21 @@ program
   .description('Serve the viewer')
   .option('-p, --port <port>', 'Port to run the viewer on', 3000)
   .option('-o, --open', 'Open the viewer in default browser')
-  .action(args => {
-    require('../server')({
-      port: args.port,
-      tailwindConfigProvider: () => {
-        const configPath = resolveConfigPath(program.config)
-        delete require.cache[configPath]
-        return require(configPath)
-      },
-      shouldOpen: args.open
-    }).start()
+  .action(async args => {
+    process.env = { ...process.env, VITE_TCV_CONFIG: program.config };
+
+    const server = await createServer({
+      root: resolve(__dirname, '../'),
+      configFile: resolve(__dirname, '../vite.config.js'),
+      server: {
+        publicDir: resolve(__dirname, '../'),
+        port: args.port,
+        open: args.open
+      }
+    })
+
+    await server.listen()
+    server.printUrls()
   })
 
 program

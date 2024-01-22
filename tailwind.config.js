@@ -1,8 +1,10 @@
+import { resolve } from 'path'
+
 export default {
   darkMode: 'class',
-  purge: [
-    './src/**/*.vue',
-    './src/**/*.js'
+  content: [
+    `${resolve(__dirname)}/src/**/*.vue`,
+    `${resolve(__dirname)}/src/**/*.js`,
   ],
   theme: {
     extend: {
