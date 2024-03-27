@@ -12,10 +12,11 @@ program
   .action(args => {
     require('../server')({
       port: args.port,
-      tailwindConfigProvider: () => {
+      tailwindConfigProvider: async () => {
         const configPath = resolveConfigPath(program.config)
         delete require.cache[configPath]
-        return require(configPath)
+        const config = await import(configPath)
+        return config.default || config
       },
       shouldOpen: args.open
     }).start()
