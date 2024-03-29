@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] 2024-03-28
+
+### Fixed
+- [#92](https://github.com/rogden/tailwind-config-viewer/issues/92) Fixed issue where Tailwind config files using ESM syntax would cause the config viewer to break. This fix requires Node >= 13 which is a breaking change and the reason for the major version bump.
+
 ## [1.7.3] 2023-10-30
 
 ### Fixed
