@@ -11,12 +11,14 @@ function createServer ({
   shouldOpen,
   routerPrefix = ''
 }) {
+  console.log('CONFIG PROVIDER: ', tailwindConfigProvider)
   const app = new Koa()
 
   const router = new Router({ prefix: routerPrefix })
 
-  router.get('/config.json', (ctx) => {
-    ctx.body = resolveConfig(tailwindConfigProvider())
+  router.get('/config.json', async (ctx) => {
+    const config = await tailwindConfigProvider()
+    ctx.body = resolveConfig(config)
   })
 
   app
