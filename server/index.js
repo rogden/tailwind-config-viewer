@@ -11,7 +11,6 @@ function createServer ({
   shouldOpen,
   routerPrefix = ''
 }) {
-  console.log('CONFIG PROVIDER: ', tailwindConfigProvider)
   const app = new Koa()
 
   const router = new Router({ prefix: routerPrefix })
