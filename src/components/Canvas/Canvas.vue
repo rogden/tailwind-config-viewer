@@ -49,7 +49,7 @@
               @leaave="setActiveSection(null)"
             >
               <component
-                :is="sectionComponent(section.component)"
+                :is="section.component"
                 :data="section.data"
                 :config="config"
               />
@@ -62,12 +62,13 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue'
 import defu from 'defu'
 import Intersect from 'vue-intersect'
 import themeComponentMapper from './themeComponentMapper'
 import fontTagCreator from './fontTagCreator'
-import CanvasSection from './CanvasSection'
-import ToggleSwitch from '../ToggleSwitch'
+import CanvasSection from './CanvasSection.vue'
+import ToggleSwitch from '../ToggleSwitch.vue'
 import defaultOptions from '../../defaultOptions'
 
 export default {
@@ -101,7 +102,7 @@ export default {
 
   methods: {
     sectionComponent (component) {
-      return require(`./Sections/${component}.vue`).default
+      return defineAsyncComponent(() => import(`./Sections/${component}.vue`))
     },
 
     prefixClassName (className) {
@@ -118,7 +119,7 @@ export default {
   },
 
   async mounted () {
-    const config = await fetch(window.__TCV_CONFIG.configPath)
+    const config = await fetch('/api/config.json')
     this.config = await config.json()
     this.config = defu(this.config, defaultOptions)
     this.configTransformed = themeComponentMapper(this.config.theme)

@@ -49,11 +49,11 @@
 
 <script>
 import { remToPx } from '@/utils'
-import CanvasBlockLabel from '../CanvasBlockLabel'
-import ButtonGroup from '../../ButtonGroup'
-import Button from '../../Button'
-import Select from '../../Select'
-import StickySectionHeader from '../../StickySectionHeader'
+import CanvasBlockLabel from '../CanvasBlockLabel.vue'
+import ButtonGroup from '../../ButtonGroup.vue'
+import Button from '../../Button.vue'
+import Select from '../../Select.vue'
+import StickySectionHeader from '../../StickySectionHeader.vue'
 
 export default {
   components: {
@@ -83,12 +83,12 @@ export default {
 
   dimensionOptions: {
     '': 'All',
-    't': 'Top',
-    'r': 'Right',
-    'b': 'Bottom',
-    'l': 'Left',
-    'x': 'Horizontal',
-    'y': 'Vertical'
+    t: 'Top',
+    r: 'Right',
+    b: 'Bottom',
+    l: 'Left',
+    x: 'Horizontal',
+    y: 'Vertical'
   },
 
   computed: {
