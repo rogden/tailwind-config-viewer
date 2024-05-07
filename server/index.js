@@ -4,6 +4,7 @@ const Router = require('@koa/router')
 const portfinder = require('portfinder')
 const open = require('open')
 const { resolveConfig } = require('../lib/tailwindConfigUtils')
+const { join } = require('node:path')
 
 function createServer ({
   port = 3000,
@@ -21,7 +22,7 @@ function createServer ({
   })
 
   app
-    .use(serve(`${__dirname}/../dist`))
+    .use(serve(join(__dirname, '../dist')))
     .use(router.routes())
     .use(router.allowedMethods())
 
