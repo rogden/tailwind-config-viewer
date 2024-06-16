@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const { pathToFileURL } = require('url')
 const { resolveConfigPath } = require('../lib/tailwindConfigUtils')
 const program = require('commander')
 program
@@ -14,8 +15,9 @@ program
       port: args.port,
       tailwindConfigProvider: async () => {
         const configPath = resolveConfigPath(program.config)
-        delete require.cache[configPath]
-        const config = await import(configPath)
+        const configHref = pathToFileURL(configPath).href;
+        delete require.cache[configHref]
+        const config = await import(configHref)
         return config.default || config
       },
       shouldOpen: args.open
