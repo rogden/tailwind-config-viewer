@@ -101,10 +101,6 @@ export default {
   },
 
   methods: {
-    sectionComponent (component) {
-      return defineAsyncComponent(() => import(`./Sections/${component}.vue`))
-    },
-
     prefixClassName (className) {
       return this.config.prefix ? `${this.config.prefix}${className}` : className
     },
