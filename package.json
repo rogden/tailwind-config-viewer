@@ -7,12 +7,13 @@
     "email": "ryaneogden@gmail.com"
   },
   "scripts": {
-    "serve": "node cli/index.js -c tailwind.config.sample.js & vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "node cli/index.js -c tailwind.config.sample.js & vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "build:docs": "npm run build && node ./cli export ./docs -c tailwind.config.sample.js",
     "prepublishOnly": "npm run lint --no-fix && npm run build",
-    "lint": "vue-cli-service lint",
-    "test": "echo \"No test specified\"",
     "version": "npm run build:docs && git add docs"
   },
   "bin": {
@@ -39,32 +40,35 @@
   },
   "dependencies": {
     "@koa/router": "^12.0.1",
+    "autoprefixer": "^10.4.19",
     "commander": "^6.0.0",
     "fs-extra": "^9.0.1",
     "koa": "^2.14.2",
     "koa-static": "^5.0.0",
     "open": "^7.0.4",
     "portfinder": "^1.0.26",
-    "replace-in-file": "^6.1.0"
+    "postcss": "^8.4.38",
+    "replace-in-file": "^6.1.0",
+    "vue": "^2.7.16"
   },
   "peerDependencies": {
     "tailwindcss": "1 || 2 || 2.0.1-compat || 3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.7.0",
-    "@vue/cli-plugin-eslint": "^3.7.0",
-    "@vue/cli-service": "^3.7.0",
-    "@vue/eslint-config-standard": "^4.0.0",
-    "babel-eslint": "^10.0.1",
+    "@vitejs/plugin-vue2": "^2.3.1",
+    "@vue/eslint-config-standard": "^8.0.0",
+    "@vue/test-utils": "^2.4.3",
     "core-js": "^2.6.5",
     "defu": "^3.2.2",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "jsdom": "^23.0.1",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.3",
     "tailwindcss": "^1.4.4",
     "tailwindcss-dark-mode": "^1.1.6",
-    "vue": "^2.6.10",
+    "vite": "^5.0.10",
+    "vitest": "^1.0.4",
     "vue-draggable-resizable": "^2.2.0",
     "vue-intersect": "^1.1.6",
     "vue-template-compiler": "^2.5.21"

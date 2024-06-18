@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-
 import '@/assets/css/index.css'
 
-Vue.config.productionTip = false
+;(async function init () {
+  // config
+  Vue.config.productionTip = false
 
-new Vue({
-  render: h => h(App)
-}).$mount('#app')
+  // load vue
+  new Vue({
+    render: h => h(App)
+  }).$mount('#app')
+}())

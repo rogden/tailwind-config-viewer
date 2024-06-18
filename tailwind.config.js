@@ -1,4 +1,6 @@
-module.exports = {
+import darkMode from 'tailwindcss-dark-mode'
+
+export default {
   purge: [
     './src/**/*.vue',
     './src/**/*.js'
@@ -9,8 +11,8 @@ module.exports = {
         midnight: '#0f0f17'
       },
       spacing: {
-        '28': '7rem',
-        '36': '9rem'
+        28: '7rem',
+        36: '9rem'
       }
     }
   },
@@ -21,6 +23,6 @@ module.exports = {
     textColor: ['dark', 'dark-hover', 'hover']
   },
   plugins: [
-    require('tailwindcss-dark-mode')()
+    darkMode()
   ]
 }
