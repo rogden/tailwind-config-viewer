@@ -8,7 +8,7 @@ module.exports = async function (outputDir, configPath) {
   outputDir = path.resolve(process.cwd(), outputDir)
 
   fs.removeSync(outputDir)
-  fs.mkdirSync(outputDir)
+  fs.mkdirSync(outputDir, { recursive: true })
 
   const configJson = await resolveConfigToJson(configPath)
   const configFileName = generateConfigFileNameFromJson(configJson)
