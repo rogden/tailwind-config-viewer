@@ -15,7 +15,7 @@ program
       port: args.port,
       tailwindConfigProvider: async () => {
         const configPath = resolveConfigPath(program.config)
-        const configHref = pathToFileURL(configPath).href;
+        const configHref = pathToFileURL(configPath).href
         delete require.cache[configHref]
         const config = await import(configHref)
         return config.default || config
@@ -28,7 +28,9 @@ program
   .command('export [outputDir]')
   .description('Create a static export of the viewer')
   .action((outputDir = './tcv-build') => {
-    require('./export')(outputDir, resolveConfigPath(program.config))
+    const configPath = resolveConfigPath(program.config)
+    const configHref = pathToFileURL(configPath).href
+    require('./export')(outputDir, configHref)
   })
 
 program.parse(process.argv)
