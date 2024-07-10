@@ -42,6 +42,7 @@ The `serve` command is the default command. Running `tailwind-config-viewer` is 
 |-p, --port|`3000`|The port to run the viewer on. If occupied it will use next available port.|
 |-o, --open|`false`|Open the viewer in default browser|
 |-c, --config|`tailwind.config.js`|Path to your Tailwind config file|
+|--css|`style.css`| Path to your stylesheet file (CSS). Inject CSS to head element of config viewer. This is handy for defining CSS variables|
 
 ### export
 
@@ -103,6 +104,66 @@ module.exports = {
 ```
 
 You can replace any value in your theme for display in the config viewer by setting the corresponding `valueToFind: valueToReplace` in the `themeReplacements` object.
+
+### CSS inject
+
+You can inject CSS file to head of the config viewer. This is useful when you got defined your properties in config as CSS variables, also useful for importing fonts.
+
+For defining variables in dark mode use class name `mode-dark`
+
+```js
+module.exports = {
+  theme: {
+    colors: {
+      'blue-50':  'var(--color-blue-50)',
+      'blue-100': 'var(--color-blue-100)',
+      'blue-200': 'var(--color-blue-200)',
+      'blue-300': 'var(--color-blue-300)',
+      'blue-400': 'var(--color-blue-400)',
+      'blue-500': 'var(--color-blue-500)',
+      'blue-600': 'var(--color-blue-600)',
+      'blue-700': 'var(--color-blue-700)',
+      'blue-800': 'var(--color-blue-800)',
+      'blue-900': 'var(--color-blue-900)',
+      'blue-950': 'var(--color-blue-950)',
+    },
+  }
+}
+```
+
+style.css example
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fustat:wght@200..800&display=swap');
+
+:root {
+  --color-blue-50:  #f0f9ff;
+  --color-blue-100: #e0f2fe;
+  --color-blue-200: #bae6fd;
+  --color-blue-300: #7dd3fc;
+  --color-blue-400: #38bdf8;
+  --color-blue-500: #0ea5e9;
+  --color-blue-600: #0284c7;
+  --color-blue-700: #0369a1;
+  --color-blue-800: #075985;
+  --color-blue-900: #0c4a6e;
+  --color-blue-950: #ffffff;
+}
+
+.mode-dark {
+   --color-blue-50:  #f0f9ff;
+   --color-blue-100: #dbeafe;
+   --color-blue-200: #bfdbfe;
+   --color-blue-300: #93c5fd;
+   --color-blue-400: #60a5fa;
+   --color-blue-500: #3b82f6;
+   --color-blue-600: #2563eb;
+   --color-blue-700: #0369a1;
+   --color-blue-800: #1d4ed8;
+   --color-blue-900: #1e40af;
+   --color-blue-950: #1e3a8a;
+}
+```
 
 ### baseFontSize
 

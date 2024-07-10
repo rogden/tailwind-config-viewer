@@ -8,6 +8,7 @@ const { resolveConfig } = require('../lib/tailwindConfigUtils')
 function createServer ({
   port = 3000,
   tailwindConfigProvider,
+  cssProvider,
   shouldOpen,
   routerPrefix = ''
 }) {
@@ -18,6 +19,12 @@ function createServer ({
   router.get('/config.json', async (ctx) => {
     const config = await tailwindConfigProvider()
     ctx.body = resolveConfig(config)
+  })
+
+  router.get('/style.css', async (ctx) => {
+    const stylesToInject = await cssProvider()
+    ctx.type = 'text/css'
+    ctx.body = stylesToInject
   })
 
   app

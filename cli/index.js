@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 const { pathToFileURL } = require('url')
 const { resolveConfigPath } = require('../lib/tailwindConfigUtils')
+const { readFile, access, constants } = require('fs/promises')
 const program = require('commander')
+
 program
   .option('-c, --config <path>', 'Path to your Tailwind config file', './tailwind.config.js')
+  .option('--css <path>', 'Path to your CSS style file', './style.css')
 
 program
   .command('serve', { isDefault: true })
@@ -19,6 +22,15 @@ program
         delete require.cache[configHref]
         const config = await import(configHref)
         return config.default || config
+      },
+      cssProvider: async () => {
+        const filePath = program.css
+
+        try {
+          await access(filePath, constants.F_OK)
+          const styles = await readFile(filePath, 'utf-8')
+          return styles
+        } catch (err) {}
       },
       shouldOpen: args.open
     }).start()
