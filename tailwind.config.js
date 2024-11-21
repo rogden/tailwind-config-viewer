@@ -1,7 +1,5 @@
-import darkMode from 'tailwindcss-dark-mode'
-
 export default {
-  purge: [
+  content: [
     './src/**/*.vue',
     './src/**/*.js'
   ],
@@ -16,13 +14,5 @@ export default {
       }
     }
   },
-  variants: {
-    backgroundColor: ['dark', 'dark-hover', 'hover'],
-    backgroundOpacity: ['dark'],
-    borderColor: ['dark', 'dark-hover', 'responsive', 'hover'],
-    textColor: ['dark', 'dark-hover', 'hover']
-  },
-  plugins: [
-    darkMode()
-  ]
+  darkMode: 'selector'
 }

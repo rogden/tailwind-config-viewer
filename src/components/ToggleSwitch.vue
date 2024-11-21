@@ -40,7 +40,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style>
 /* CHECKBOX TOGGLE SWITCH */
 /* @apply rules for documentation, these do not work as inline style */
 .toggle-checkbox:checked {

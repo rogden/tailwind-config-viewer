@@ -120,7 +120,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .transition-container {
   &__block {
     right: calc(100% - theme('spacing.28'));

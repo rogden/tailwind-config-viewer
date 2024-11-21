@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .button-group {
   :first-child:not(:last-child) {
     border-top-right-radius: 0;
