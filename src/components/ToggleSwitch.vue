@@ -79,10 +79,6 @@ export default {
   }
 }
 
-.toggle-checkbox:focus + .toggle-label {
-
-}
-
 .toggle-checkbox:checked + .toggle-label {
   @apply bg-gray-500;
 
