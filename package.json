@@ -45,18 +45,18 @@
     "koa-static": "^5.0.0",
     "open": "^7.0.4",
     "portfinder": "^1.0.26",
-    "replace-in-file": "^6.1.0"
+    "replace-in-file": "^8.3.0"
   },
   "peerDependencies": {
     "tailwindcss": "1 || 2 || 2.0.1-compat || 3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^3.7.0",
-    "@vue/cli-service": "^3.7.0",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
-    "core-js": "^2.6.5",
+    "core-js": "^3.42.0",
     "defu": "^3.2.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
