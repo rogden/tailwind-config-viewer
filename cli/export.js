@@ -17,7 +17,7 @@ module.exports = async function (outputDir, configPath) {
 
   fs.copySync(path.resolve(__dirname, '../dist'), outputDir)
 
-  replace.sync({
+  replace.replaceInFileSync({
     files: `${outputDir}/index.html`,
     from: 'config.json',
     to: configFileName
